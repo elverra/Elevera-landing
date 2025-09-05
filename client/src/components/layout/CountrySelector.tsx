@@ -1,10 +1,9 @@
 import Globe from "@/components/globe";
-import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Search, X } from "lucide-react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"; // ✅ utiliser useNavigate
+import { Link, useNavigate } from "react-router-dom"; // ✅ utiliser useNavigate
 
 interface Country {
   name: string;
@@ -138,24 +137,20 @@ export default function CountrySelector() {
   return (
     <div className="min-h-screen bg-white relative">
       {/* Close Button */}
-      <div className="absolute top-6 right-6 z-10">
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={() => {
-            navigate("/");
-          }}
-          className="text-gray-600 hover:bg-gray-100"
+      <div className="absolute top-6 right-6 z-20">
+        <Link
+          to="/" // ou une route interne, comme "/selectCountry"
+          className="text-gray-600 hover:bg-gray-100 rounded-full p-1 inline-flex"
         >
           <X className="h-6 w-6" />
-        </Button>
+        </Link>
       </div>
 
       <div className="relative z-10 container mx-auto px-6 py-12">
         {/* Header */}
         <div className="text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 text-balance">
-            Choose Local ISIC Website
+            Choose Local Elverra Global Website
           </h1>
 
           {/* Search Bar */}

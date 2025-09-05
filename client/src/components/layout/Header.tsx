@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/hooks/useAuth";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, Globe, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -225,7 +225,10 @@ const Header = () => {
               to="/selectCountry"
               className="text-gray-600 hover:text-purple-600 transition-colors font-medium"
             >
-              Country
+              <div className="flex items-center gap-1">
+                <Globe className="h-4 w-4" />
+                <span>Country</span>
+              </div>
             </Link>
 
             {/* Mobile Menu Button */}
