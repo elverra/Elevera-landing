@@ -1,8 +1,10 @@
+import Globe from "@/components/globe";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Search, X } from "lucide-react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom"; // ✅ utiliser useNavigate
 
 interface Country {
   name: string;
@@ -10,28 +12,107 @@ interface Country {
   code: string;
 }
 
+interface Country {
+  name: string;
+  flag: string;
+  code: string;
+  active?: boolean;
+  link?: string;
+}
+
 const countries: Record<string, Country[]> = {
   Africa: [
-    { name: "Algeria", flag: "🇩🇿", code: "DZ" },
-    { name: "Egypt", flag: "🇪🇬", code: "EG" },
-    { name: "Iran", flag: "🇮🇷", code: "IR" },
-    { name: "Israel", flag: "🇮🇱", code: "IL" },
-    { name: "Kenya", flag: "🇰🇪", code: "KE" },
-    { name: "Kurdistan", flag: "🏴", code: "KU" },
-    { name: "Kuwait", flag: "🇰🇼", code: "KW" },
-    { name: "Lebanon", flag: "🇱🇧", code: "LB" },
-    { name: "Morocco", flag: "🇲🇦", code: "MA" },
-    { name: "Niger", flag: "🇳🇪", code: "NE" },
-    { name: "Nigeria", flag: "🇳🇬", code: "NG" },
-    { name: "Oman", flag: "🇴🇲", code: "OM" },
-    { name: "Qatar", flag: "🇶🇦", code: "QA" },
-    { name: "Saudi Arabia", flag: "🇸🇦", code: "SA" },
+    { name: "Algeria", flag: "🇩🇿", code: "DZ", active: false, link: "/" },
+    { name: "Angola", flag: "🇦🇴", code: "AO", active: false, link: "/" },
+    { name: "Benin", flag: "🇧🇯", code: "BJ", active: false, link: "/" },
+    { name: "Botswana", flag: "🇧🇼", code: "BW", active: false, link: "/" },
+    { name: "Burkina Faso", flag: "🇧🇫", code: "BF", active: false, link: "/" },
+    { name: "Burundi", flag: "🇧🇮", code: "BI", active: false, link: "/" },
+    { name: "Cabo Verde", flag: "🇨🇻", code: "CV", active: false, link: "/" },
+    { name: "Cameroon", flag: "🇨🇲", code: "CM", active: false, link: "/" },
+    {
+      name: "Central African Republic",
+      flag: "🇨🇫",
+      code: "CF",
+      active: false,
+      link: "/",
+    },
+    { name: "Chad", flag: "🇹🇩", code: "TD", active: false, link: "/" },
+    { name: "Comoros", flag: "🇰🇲", code: "KM", active: false, link: "/" },
+    {
+      name: "Congo (Congo-Brazzaville)",
+      flag: "🇨🇬",
+      code: "CG",
+      active: false,
+      link: "/",
+    },
+    { name: "Congo (DRC)", flag: "🇨🇩", code: "CD", active: false, link: "/" },
+    { name: "Djibouti", flag: "🇩🇯", code: "DJ", active: false, link: "/" },
+    { name: "Egypt", flag: "🇪🇬", code: "EG", active: false, link: "/" },
+    {
+      name: "Equatorial Guinea",
+      flag: "🇬🇶",
+      code: "GQ",
+      active: false,
+      link: "/",
+    },
+    { name: "Eritrea", flag: "🇪🇷", code: "ER", active: false, link: "/" },
+    { name: "Eswatini", flag: "🇸🇿", code: "SZ", active: false, link: "/" },
+    { name: "Ethiopia", flag: "🇪🇹", code: "ET", active: false, link: "/" },
+    { name: "Gabon", flag: "🇬🇦", code: "GA", active: false, link: "/" },
+    { name: "Gambia", flag: "🇬🇲", code: "GM", active: false, link: "/" },
+    { name: "Ghana", flag: "🇬🇭", code: "GH", active: false, link: "/" },
+    { name: "Guinea", flag: "🇬🇳", code: "GN", active: false, link: "/" },
+    { name: "Guinea-Bissau", flag: "🇬🇼", code: "GW", active: false, link: "/" },
+    { name: "Ivory Coast", flag: "🇨🇮", code: "CI", active: false, link: "/" },
+    { name: "Kenya", flag: "🇰🇪", code: "KE", active: false, link: "/" },
+    { name: "Lesotho", flag: "🇱🇸", code: "LS", active: false, link: "/" },
+    { name: "Liberia", flag: "🇱🇷", code: "LR", active: false, link: "/" },
+    { name: "Libya", flag: "🇱🇾", code: "LY", active: false, link: "/" },
+    { name: "Madagascar", flag: "🇲🇬", code: "MG", active: false, link: "/" },
+    { name: "Malawi", flag: "🇲🇼", code: "MW", active: false, link: "/" },
+    {
+      name: "Mali",
+      flag: "🇲🇱",
+      code: "ML",
+      active: true,
+      link: "https://elverraglobalml.com",
+    },
+    { name: "Mauritania", flag: "🇲🇷", code: "MR", active: false, link: "/" },
+    { name: "Mauritius", flag: "🇲🇺", code: "MU", active: false, link: "/" },
+    { name: "Morocco", flag: "🇲🇦", code: "MA", active: false, link: "/" },
+    { name: "Mozambique", flag: "🇲🇿", code: "MZ", active: false, link: "/" },
+    { name: "Namibia", flag: "🇳🇦", code: "NA", active: false, link: "/" },
+    { name: "Niger", flag: "🇳🇪", code: "NE", active: false, link: "/" },
+    { name: "Nigeria", flag: "🇳🇬", code: "NG", active: false, link: "/" },
+    { name: "Rwanda", flag: "🇷🇼", code: "RW", active: false, link: "/" },
+    {
+      name: "Sao Tome and Principe",
+      flag: "🇸🇹",
+      code: "ST",
+      active: false,
+      link: "/",
+    },
+    { name: "Senegal", flag: "🇸🇳", code: "SN", active: false, link: "/" },
+    { name: "Seychelles", flag: "🇸🇨", code: "SC", active: false, link: "/" },
+    { name: "Sierra Leone", flag: "🇸🇱", code: "SL", active: false, link: "/" },
+    { name: "Somalia", flag: "🇸🇴", code: "SO", active: false, link: "/" },
+    { name: "South Africa", flag: "🇿🇦", code: "ZA", active: false, link: "/" },
+    { name: "South Sudan", flag: "🇸🇸", code: "SS", active: false, link: "/" },
+    { name: "Sudan", flag: "🇸🇩", code: "SD", active: false, link: "/" },
+    { name: "Tanzania", flag: "🇹🇿", code: "TZ", active: false, link: "/" },
+    { name: "Togo", flag: "🇹🇬", code: "TG", active: false, link: "/" },
+    { name: "Tunisia", flag: "🇹🇳", code: "TN", active: false, link: "/" },
+    { name: "Uganda", flag: "🇺🇬", code: "UG", active: false, link: "/" },
+    { name: "Zambia", flag: "🇿🇲", code: "ZM", active: false, link: "/" },
+    { name: "Zimbabwe", flag: "🇿🇼", code: "ZW", active: false, link: "/" },
   ],
 };
 
 export default function CountrySelector() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCountry, setSelectedCountry] = useState<Country | null>(null);
+  const navigate = useNavigate(); // ✅ hook pour revenir en arrière
 
   const filteredCountries = Object.entries(countries).reduce(
     (acc, [region, countryList]) => {
@@ -61,6 +142,9 @@ export default function CountrySelector() {
         <Button
           variant="ghost"
           size="icon"
+          onClick={() => {
+            navigate("/");
+          }}
           className="text-gray-600 hover:bg-gray-100"
         >
           <X className="h-6 w-6" />
@@ -69,14 +153,14 @@ export default function CountrySelector() {
 
       <div className="relative z-10 container mx-auto px-6 py-12">
         {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 text-balance">
+        <div className="text-center">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 text-balance">
             Choose Local ISIC Website
           </h1>
 
           {/* Search Bar */}
-          <div className="max-w-md mx-auto relative mb-8">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+          <div className="max-w-md mx-auto relative">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4 " />
             <Input
               type="text"
               placeholder="Search countries..."
@@ -86,38 +170,14 @@ export default function CountrySelector() {
             />
           </div>
 
-          <div className="mb-8">
-            <img
-              src="/world-map-silhouette-light-gray.jpg"
-              alt="World Map"
-              className="mx-auto max-w-2xl w-full h-auto opacity-30"
-            />
+          {/* Globe */}
+          <div className="mb-6 mt-8">
+            <Globe />
           </div>
-
-          {/* Selected Country Display */}
-          {selectedCountry && (
-            <Card className="max-w-sm mx-auto mt-6 p-4 bg-blue-50 border-blue-200">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <span className="text-2xl">{selectedCountry.flag}</span>
-                  <span className="font-semibold text-blue-900">
-                    {selectedCountry.name}
-                  </span>
-                </div>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={clearSelection}
-                  className="text-blue-700 hover:bg-blue-100"
-                >
-                  <X className="h-4 w-4" />
-                </Button>
-              </div>
-            </Card>
-          )}
         </div>
 
-        <div className="max-w-2xl mx-auto">
+        {/* Countries List */}
+        <div className="w-full px-4">
           {Object.entries(filteredCountries).map(([region, countryList]) => (
             <Card
               key={region}
@@ -126,21 +186,36 @@ export default function CountrySelector() {
               <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
                 {region}
               </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                {countryList.map((country) => (
-                  <button
-                    key={country.code}
-                    onClick={() => handleCountrySelect(country)}
-                    className={`w-full flex items-center gap-3 p-3 rounded-md transition-colors hover:bg-gray-50 text-left ${
-                      selectedCountry?.code === country.code
-                        ? "bg-blue-50 text-blue-900 border border-blue-200"
-                        : "text-gray-700"
-                    }`}
-                  >
-                    <span className="text-lg">{country.flag}</span>
-                    <span className="text-sm font-medium">{country.name}</span>
-                  </button>
-                ))}
+              <div className="grid grid-cols-1 md:grid-cols-5 gap-2">
+                {countryList
+                  .slice() // on clone le tableau pour ne pas muter l'original
+                  .sort((a, b) => {
+                    if (a.active && !b.active) return -1; // a actif → avant
+                    if (!a.active && b.active) return 1; // b actif → avant
+                    return 0; // sinon garder l'ordre original
+                  })
+                  .map((country) => (
+                    <button
+                      key={country.code}
+                      onClick={() => {
+                        if (country.active && country.link) {
+                          window.location.href = country.link; // ouvre dans le même onglet
+                        }
+                      }}
+                      disabled={!country.active}
+                      className={`w-full flex items-center gap-3 p-3 rounded-md transition-colors text-left
+                      ${
+                        country.active
+                          ? "bg-white text-gray-900 border border-gray-200 hover:bg-blue-50 hover:text-blue-900"
+                          : "bg-gray-100 text-gray-400 cursor-not-allowed"
+                      }`}
+                    >
+                      <span className="text-lg">{country.flag}</span>
+                      <span className="text-sm font-medium">
+                        {country.name}
+                      </span>
+                    </button>
+                  ))}
               </div>
             </Card>
           ))}
