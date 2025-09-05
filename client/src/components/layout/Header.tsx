@@ -8,18 +8,9 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useAuth } from "@/hooks/useAuth";
-import {
-  ChevronDown,
-  LogOut,
-  Menu,
-  Plus,
-  Settings,
-  User,
-  X,
-} from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import CountrySelector from "./CountrySelector";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -196,87 +187,20 @@ const Header = () => {
             </Link>
 
             {/* Jobs Dropdown */}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button
-                  variant="ghost"
-                  className="text-gray-600 hover:text-purple-600 font-medium"
-                  style={{ fontSize: "15px" }}
-                >
-                  Jobs
-                  <ChevronDown className="h-4 w-4 ml-1" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent
-                align="start"
-                className="w-56 bg-white border shadow-lg"
-              >
-                <DropdownMenuItem asChild>
-                  <Link to="/jobs" className="flex items-center">
-                    Browse Jobs
-                  </Link>
-                </DropdownMenuItem>
-
-                <DropdownMenuItem asChild>
-                  <Link
-                    to="/job-dashboard/employee"
-                    className="flex items-center"
-                  >
-                    Employee Dashboard
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link
-                    to="/job-dashboard/employer"
-                    className="flex items-center"
-                  >
-                    Employer Dashboard
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem asChild>
-                  <Link to="/post-job" className="flex items-center">
-                    <Plus className="h-4 w-4 mr-2" />
-                    Post a Job
-                  </Link>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <Link
+              to="/jobs"
+              className="text-gray-600 hover:text-purple-600 transition-colors font-medium"
+            >
+              Career
+            </Link>
 
             {/* Our Affiliates Dropdown */}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button
-                  variant="ghost"
-                  className="text-gray-600 hover:text-purple-600 font-medium"
-                  style={{ fontSize: "15px" }}
-                >
-                  Our Affiliates
-                  <ChevronDown className="h-4 w-4 ml-1" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent
-                align="start"
-                className="w-56 bg-white border shadow-lg"
-              >
-                <DropdownMenuItem asChild>
-                  <Link to="/affiliates/members">Client Affiliate</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link to="/affiliates/merchants">Merchant Affiliate</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link to="/affiliate-dashboard">Affiliate Dashboard</Link>
-                </DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem asChild>
-                  <Link to="/affiliate-program">
-                    <Settings className="h-4 w-4 mr-2" />
-                    Join Affiliate Program
-                  </Link>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <Link
+              to="/jobs"
+              className="text-gray-600 hover:text-purple-600 transition-colors font-medium"
+            >
+              Affiliate Program
+            </Link>
 
             <Link
               to="/discounts"
@@ -297,54 +221,12 @@ const Header = () => {
 
           {/* Right Side Actions */}
           <div className="flex items-center space-x-3">
-            <CountrySelector />
-
-            {user ? (
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="flex items-center space-x-2"
-                  >
-                    <User className="h-4 w-4" />
-                    <span className="hidden sm:inline">{t("nav.account")}</span>
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent
-                  align="end"
-                  className="w-56 bg-white border shadow-lg"
-                >
-                  <DropdownMenuItem asChild>
-                    <Link to="/dashboard" className="flex items-center">
-                      <Settings className="h-4 w-4 mr-2" />
-                      {t("nav.dashboard")}
-                    </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem
-                    onClick={handleSignOut}
-                    className="flex items-center text-red-600"
-                  >
-                    <LogOut className="h-4 w-4 mr-2" />
-                    {t("nav.signout")}
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            ) : (
-              <div className="hidden md:flex items-center space-x-2">
-                <Button variant="ghost" size="sm" asChild>
-                  <Link to="/login">{t("nav.login")}</Link>
-                </Button>
-                <Button
-                  size="sm"
-                  asChild
-                  className="bg-purple-600 hover:bg-purple-700"
-                >
-                  <Link to="/register">{t("nav.register")}</Link>
-                </Button>
-              </div>
-            )}
+            <Link
+              to="/selectCountry"
+              className="text-gray-600 hover:text-purple-600 transition-colors font-medium"
+            >
+              Country
+            </Link>
 
             {/* Mobile Menu Button */}
             <Button
@@ -510,25 +392,6 @@ const Header = () => {
               >
                 Competitions
               </Link>
-
-              {!user && (
-                <div className="flex flex-col space-y-2 px-2 pt-4 border-t">
-                  <Button variant="ghost" size="sm" asChild>
-                    <Link to="/login" onClick={toggleMenu}>
-                      Login
-                    </Link>
-                  </Button>
-                  <Button
-                    size="sm"
-                    asChild
-                    className="bg-purple-600 hover:bg-purple-700"
-                  >
-                    <Link to="/register" onClick={toggleMenu}>
-                      Join Now
-                    </Link>
-                  </Button>
-                </div>
-              )}
             </nav>
           </div>
         )}

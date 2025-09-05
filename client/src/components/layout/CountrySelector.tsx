@@ -1,166 +1,160 @@
-import { useState } from 'react';
-import { Check, Globe, Languages } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { useToast } from '@/components/ui/use-toast';
-import { useLanguage } from '@/contexts/LanguageContext';
-import { Separator } from '@/components/ui/separator';
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Search, X } from "lucide-react";
+import { useState } from "react";
 
 interface Country {
-  id: string;
   name: string;
+  flag: string;
   code: string;
-  active: boolean;
-  url?: string;
 }
 
-interface Language {
-  id: string;
-  name: string;
-  nameEn: string;
-  nameFr: string;
-  code: string;
-  active: boolean;
-}
+const countries: Record<string, Country[]> = {
+  Africa: [
+    { name: "Algeria", flag: "🇩🇿", code: "DZ" },
+    { name: "Egypt", flag: "🇪🇬", code: "EG" },
+    { name: "Iran", flag: "🇮🇷", code: "IR" },
+    { name: "Israel", flag: "🇮🇱", code: "IL" },
+    { name: "Kenya", flag: "🇰🇪", code: "KE" },
+    { name: "Kurdistan", flag: "🏴", code: "KU" },
+    { name: "Kuwait", flag: "🇰🇼", code: "KW" },
+    { name: "Lebanon", flag: "🇱🇧", code: "LB" },
+    { name: "Morocco", flag: "🇲🇦", code: "MA" },
+    { name: "Niger", flag: "🇳🇪", code: "NE" },
+    { name: "Nigeria", flag: "🇳🇬", code: "NG" },
+    { name: "Oman", flag: "🇴🇲", code: "OM" },
+    { name: "Qatar", flag: "🇶🇦", code: "QA" },
+    { name: "Saudi Arabia", flag: "🇸🇦", code: "SA" },
+  ],
+};
 
-interface CountrySelectorProps {
-  onClose?: () => void;
-}
+export default function CountrySelector() {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCountry, setSelectedCountry] = useState<Country | null>(null);
 
-const CountrySelector = ({ onClose }: CountrySelectorProps) => {
-  const { toast } = useToast();
-  const { language, setLanguage, t } = useLanguage();
-
-  const countries: Country[] = [
-    { id: '1', name: 'Mali', code: 'ML', active: true, url: 'https://www.elverramali.com' },
-    { id: '2', name: 'Nigeria', code: 'NG', active: false, url: 'https://www.elverranigeria.com' },
-    { id: '3', name: 'Ghana', code: 'GH', active: false, url: 'https://www.elverraghana.com' },
-    { id: '4', name: 'Senegal', code: 'SN', active: false, url: 'https://www.elverrasenegal.com' },
-    { id: '5', name: 'South Africa', code: 'ZA', active: false, url: 'https://www.elverrasouthafrica.com' },
-    { id: '6', name: 'Kenya', code: 'KE', active: false, url: 'https://www.elverrakenya.com' },
-    { id: '7', name: 'Ivory Coast', code: 'CI', active: false, url: 'https://www.elverraivorycoast.com' },
-    { id: '8', name: 'Egypt', code: 'EG', active: false, url: 'https://www.elverraegypt.com' },
-    { id: '9', name: 'International', code: 'GL', active: true, url: 'https://www.elverra.net' },
-  ];
-
-  const languages: Language[] = [
-    { id: '1', name: 'English', nameEn: 'English', nameFr: 'Anglais', code: 'en', active: true },
-    { id: '2', name: 'Français', nameEn: 'French', nameFr: 'Français', code: 'fr', active: true },
-  ];
-
-  const [selectedCountry, setSelectedCountry] = useState<string>('Mali');
-  const [open, setOpen] = useState(false);
-
-  const currentLanguageName = language === 'en' ? 'English' : 'Français';
+  const filteredCountries = Object.entries(countries).reduce(
+    (acc, [region, countryList]) => {
+      const filtered = countryList.filter((country) =>
+        country.name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      if (filtered.length > 0) {
+        acc[region] = filtered;
+      }
+      return acc;
+    },
+    {} as Record<string, Country[]>
+  );
 
   const handleCountrySelect = (country: Country) => {
-    if (!country.active) {
-      toast({
-        title: t('selector.not_available'),
-        description: t('selector.not_available_desc'),
-        variant: "destructive",
-      });
-      return;
-    }
-    
-    // Update selected country
-    setSelectedCountry(country.name);
-    setOpen(false);
-    
-    // Handle country redirection
-    if (country.url && country.name !== 'International' && window.location.hostname !== country.url) {
-      const shouldRedirect = window.confirm(`You are about to be redirected to ${country.url}. Continue?`);
-      if (shouldRedirect) {
-        window.location.href = country.url;
-      }
-    }
-    
-    if (onClose) onClose();
+    setSelectedCountry(country);
   };
 
-  const handleLanguageSelect = (lang: Language) => {
-    setLanguage(lang.code as 'en' | 'fr');
-    setOpen(false);
-    if (onClose) onClose();
+  const clearSelection = () => {
+    setSelectedCountry(null);
   };
 
   return (
-    <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger asChild>
-        <Button variant="ghost" size="sm" className="flex items-center gap-1">
-          <Globe className="h-4 w-4" />
-          <span>{selectedCountry}</span>
-          <span className="text-xs">|</span>
-          <Languages className="h-3 w-3" />
-          <span className="text-xs">{currentLanguageName}</span>
+    <div className="min-h-screen bg-white relative">
+      {/* Close Button */}
+      <div className="absolute top-6 right-6 z-10">
+        <Button
+          variant="ghost"
+          size="icon"
+          className="text-gray-600 hover:bg-gray-100"
+        >
+          <X className="h-6 w-6" />
         </Button>
-      </PopoverTrigger>
-      <PopoverContent className="w-64 p-0">
-        <div className="max-h-80 overflow-y-auto">
-          {/* Language Selection */}
-          <div className="p-2">
-            <h3 className="font-medium text-sm text-gray-700 mb-2 flex items-center gap-1">
-              <Languages className="h-4 w-4" />
-              {t('selector.language')}
-            </h3>
-            <div className="space-y-1">
-              {languages.map((lang) => (
-                <div
-                  key={lang.id}
-                  className={`flex items-center p-2 rounded-md cursor-pointer hover:bg-gray-100 ${
-                    language === lang.code ? 'bg-blue-50' : ''
-                  }`}
-                  onClick={() => handleLanguageSelect(lang)}
-                >
-                  <div className="flex-1">
-                    <span className="text-sm">
-                      {language === 'en' ? lang.nameEn : lang.nameFr}
-                    </span>
-                  </div>
-                  {language === lang.code && (
-                    <Check className="h-4 w-4 text-blue-600" />
-                  )}
-                </div>
-              ))}
-            </div>
+      </div>
+
+      <div className="relative z-10 container mx-auto px-6 py-12">
+        {/* Header */}
+        <div className="text-center mb-8">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 text-balance">
+            Choose Local ISIC Website
+          </h1>
+
+          {/* Search Bar */}
+          <div className="max-w-md mx-auto relative mb-8">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+            <Input
+              type="text"
+              placeholder="Search countries..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="pl-10 bg-white border-gray-300"
+            />
           </div>
 
-          <Separator />
-
-          {/* Country Selection */}
-          <div className="p-2">
-            <h3 className="font-medium text-sm text-gray-700 mb-2 flex items-center gap-1">
-              <Globe className="h-4 w-4" />
-              {t('selector.country')}
-            </h3>
-            <div className="space-y-1">
-              {countries.map((country) => (
-                <div
-                  key={country.id}
-                  className={`flex items-center p-2 rounded-md cursor-pointer ${
-                    country.active ? 'hover:bg-gray-100' : 'opacity-50 cursor-not-allowed'
-                  } ${selectedCountry === country.name ? 'bg-blue-50' : ''}`}
-                  onClick={() => handleCountrySelect(country)}
-                >
-                  <div className="flex-1">
-                    <span className="text-sm">
-                      {country.name}
-                      {!country.active && (
-                        <span className="text-xs ml-2 text-gray-400">(Coming Soon)</span>
-                      )}
-                    </span>
-                  </div>
-                  {selectedCountry === country.name && (
-                    <Check className="h-4 w-4 text-blue-600" />
-                  )}
-                </div>
-              ))}
-            </div>
+          <div className="mb-8">
+            <img
+              src="/world-map-silhouette-light-gray.jpg"
+              alt="World Map"
+              className="mx-auto max-w-2xl w-full h-auto opacity-30"
+            />
           </div>
+
+          {/* Selected Country Display */}
+          {selectedCountry && (
+            <Card className="max-w-sm mx-auto mt-6 p-4 bg-blue-50 border-blue-200">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <span className="text-2xl">{selectedCountry.flag}</span>
+                  <span className="font-semibold text-blue-900">
+                    {selectedCountry.name}
+                  </span>
+                </div>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={clearSelection}
+                  className="text-blue-700 hover:bg-blue-100"
+                >
+                  <X className="h-4 w-4" />
+                </Button>
+              </div>
+            </Card>
+          )}
         </div>
-      </PopoverContent>
-    </Popover>
-  );
-};
 
-export default CountrySelector;
+        <div className="max-w-2xl mx-auto">
+          {Object.entries(filteredCountries).map(([region, countryList]) => (
+            <Card
+              key={region}
+              className="p-6 bg-white border-gray-200 shadow-sm"
+            >
+              <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+                {region}
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                {countryList.map((country) => (
+                  <button
+                    key={country.code}
+                    onClick={() => handleCountrySelect(country)}
+                    className={`w-full flex items-center gap-3 p-3 rounded-md transition-colors hover:bg-gray-50 text-left ${
+                      selectedCountry?.code === country.code
+                        ? "bg-blue-50 text-blue-900 border border-blue-200"
+                        : "text-gray-700"
+                    }`}
+                  >
+                    <span className="text-lg">{country.flag}</span>
+                    <span className="text-sm font-medium">{country.name}</span>
+                  </button>
+                ))}
+              </div>
+            </Card>
+          ))}
+        </div>
+
+        {/* No Results */}
+        {Object.keys(filteredCountries).length === 0 && searchTerm && (
+          <div className="text-center py-12">
+            <p className="text-gray-500 text-lg">
+              No countries found matching "{searchTerm}"
+            </p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
