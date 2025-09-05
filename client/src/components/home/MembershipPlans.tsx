@@ -1,4 +1,3 @@
-import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -8,8 +7,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
+import { Check } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 interface CMSPage {
   id: string;
@@ -44,7 +44,10 @@ const MembershipPlans = ({ cmsContent }: MembershipPlansProps) => {
   const plans = [
     {
       name: "Essential",
+      image: "/lovable-uploads/essential-card.png",
       price: "10,000",
+      height: "195px",
+      width: "325px",
       monthly: "1,000",
       discount: "5%",
       color: "bg-gray-100",
@@ -61,8 +64,11 @@ const MembershipPlans = ({ cmsContent }: MembershipPlansProps) => {
     },
     {
       name: "Premium",
+      image: "/lovable-uploads/premium-card.png",
       price: "10,000",
       monthly: "2,000",
+      height: "175px",
+      width: "300px",
       discount: "10%",
       color: "gold-gradient",
       textColor: "text-gray-900",
@@ -81,7 +87,10 @@ const MembershipPlans = ({ cmsContent }: MembershipPlansProps) => {
     },
     {
       name: "Elite",
+      image: "/lovable-uploads/elite-card.png",
       price: "10,000",
+      height: "187px",
+      width: "320px",
       monthly: "5,000",
       discount: "20%",
       color: "card-gradient",
@@ -120,7 +129,9 @@ const MembershipPlans = ({ cmsContent }: MembershipPlansProps) => {
           {plans.map((plan, index) => (
             <Card
               key={index}
-              className={`border ${plan.popular ? "shadow-lg ring-2 ring-club66-gold" : "shadow"} relative animate-slide-up`}
+              className={`border ${
+                plan.popular ? "shadow-lg ring-2 ring-club66-gold" : "shadow"
+              } relative animate-slide-up`}
               style={{ animationDelay: `${index * 150}ms` }}
             >
               {plan.popular && (
@@ -132,7 +143,18 @@ const MembershipPlans = ({ cmsContent }: MembershipPlansProps) => {
                 className={`${plan.color} rounded-t-lg ${plan.textColor}`}
               >
                 <CardTitle className="text-2xl font-bold">
-                  {plan.name}
+                  <center>
+                    <div
+                      className="relative overflow-hidden  transform  z-10 transition-all duration-500 hover:scale-105"
+                      style={{
+                        backgroundImage: `url('${plan.image}')`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                        height: plan.height,
+                        width: plan.width,
+                      }}
+                    ></div>
+                  </center>
                 </CardTitle>
                 <CardDescription
                   className={
@@ -164,13 +186,17 @@ const MembershipPlans = ({ cmsContent }: MembershipPlansProps) => {
               <CardFooter>
                 <Button
                   onClick={() => handleSelectPlan(plan.name)}
-                  className={`w-full ${plan.buttonVariant === "default" ? "bg-purple-600 hover:bg-purple-700" : ""}`}
+                  className={`w-full ${
+                    plan.buttonVariant === "default"
+                      ? "bg-purple-600 hover:bg-purple-700"
+                      : ""
+                  }`}
                   variant={
                     plan.buttonVariant === "default"
                       ? "default"
                       : plan.buttonVariant === "secondary"
-                        ? "secondary"
-                        : "outline"
+                      ? "secondary"
+                      : "outline"
                   }
                 >
                   Select {plan.name}

@@ -1,23 +1,4 @@
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import {
-  Menu,
-  X,
-  User,
-  LogOut,
-  Settings,
-  Briefcase,
-  Building,
-  Users,
-  Search,
-  Plus,
-  ChevronDown,
-  Info,
-  UserCheck,
-  BookOpen,
-} from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -25,16 +6,24 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useAuth } from "@/hooks/useAuth";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useAuth } from "@/hooks/useAuth";
+import {
+  ChevronDown,
+  LogOut,
+  Menu,
+  Plus,
+  Settings,
+  User,
+  X,
+} from "lucide-react";
+import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import CountrySelector from "./CountrySelector";
-import { useEffect } from "react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [logoUrl, setLogoUrl] = useState<string>(
-    "/lovable-uploads/elverra-global-logo-new.jpeg",
-  );
+  const [logoUrl, setLogoUrl] = useState<string>("/lovable-uploads/logo.png");
   const { user, signOut } = useAuth();
   const { t } = useLanguage();
   const navigate = useNavigate();
@@ -295,14 +284,6 @@ const Header = () => {
               style={{ fontSize: "15px" }}
             >
               Discounts
-            </Link>
-
-            <Link
-              to="/project-requests"
-              className="text-gray-600 hover:text-purple-600 transition-colors font-medium"
-              style={{ fontSize: "15px" }}
-            >
-              Projects
             </Link>
 
             <Link
