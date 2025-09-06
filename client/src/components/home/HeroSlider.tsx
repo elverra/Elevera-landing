@@ -61,7 +61,7 @@ const HeroSlider = ({ cmsContent }: HeroSliderProps) => {
       title: "ZENIKA Cards",
       subtitle: "Your Digital Value Card",
       description:
-        "Enjoy your digital value card with QR code for quick access to services and exclusive discounts in our network.",
+        "Enjoy your digital value card with QR code for quick access to services and exclusive discounts across our service and partnership network.",
       backgroundImage:
         "/lovable-uploads/c94bd4e1-3730-468c-8b9b-8b350b608a41.png",
       primaryButton: { text: "Get My Card", link: "/register" },
@@ -83,7 +83,7 @@ const HeroSlider = ({ cmsContent }: HeroSliderProps) => {
       title: "Career & Employment",
       subtitle: "Professional Opportunities",
       description:
-        "Find your dream job or recruit the best talent through our platform dedicated to client network.",
+        "Find your dream job or recruit the best talent through our platform dedicated to our client network.",
       backgroundImage:
         "/lovable-uploads/611d8d2c-d919-40e6-8768-c63118ad2867.png",
       primaryButton: { text: "Find a Job", link: "/jobs" },

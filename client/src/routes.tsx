@@ -28,7 +28,6 @@ import Home from "@/pages/Index";
 import JobDashboardEmployee from "@/pages/job-dashboard/EmployeeDashboard";
 import JobDashboardEmployer from "@/pages/job-dashboard/EmployerDashboard";
 import JobCenter from "@/pages/JobCenter";
-import JobDetail from "@/pages/JobDetail";
 import Jobs from "@/pages/Jobs";
 import Login from "@/pages/Login";
 import MembershipPayment from "@/pages/MembershipPayment";
@@ -82,6 +81,7 @@ import MotorbikesSupport from "@/pages/services/secours/MotorbikesSupport";
 import SchoolFees from "@/pages/services/secours/SchoolFees";
 import Shop from "@/pages/Shop";
 import Wishlist from "@/pages/Wishlist";
+import JobApplicationPage from "./pages/CareerDetails";
 import SelectCountry from "./pages/SelectCountry";
 
 // Add the new route to the existing routes array
@@ -151,6 +151,14 @@ const routes = [
     element: <Team />,
   },
   {
+    path: "/careers",
+    element: <Jobs />,
+  },
+  {
+    path: "/careers/apply/:id",
+    element: <JobApplicationPage />,
+  },
+  {
     path: "/my-account",
     element: <MyAccount />,
   },
@@ -213,14 +221,6 @@ const routes = [
   {
     path: "/activate-card",
     element: <ActivateCard />,
-  },
-  {
-    path: "/jobs",
-    element: <Jobs />,
-  },
-  {
-    path: "/jobs/:id",
-    element: <JobDetail />,
   },
   {
     path: "/job-center",
