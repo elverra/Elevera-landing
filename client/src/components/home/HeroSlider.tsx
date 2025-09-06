@@ -94,7 +94,7 @@ const HeroSlider = ({ cmsContent }: HeroSliderProps) => {
       title: "Education & Scholarships",
       subtitle: "Community Projects",
       description:
-        "Access scholarships, educational projects and personal development programs for  network youth.",
+        "Access scholarships, educational projects and personal development programs for our youths network.",
       backgroundImage:
         "/lovable-uploads/4c42bd0e-c389-4a41-881c-ca7ea44a1451.png",
       primaryButton: { text: "View Projects", link: "/about/projects" },
