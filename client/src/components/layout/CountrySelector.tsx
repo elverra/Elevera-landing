@@ -106,6 +106,15 @@ const countries: Record<string, Country[]> = {
     { name: "Zambia", flag: "🇿🇲", code: "ZM", active: false, link: "/" },
     { name: "Zimbabwe", flag: "🇿🇼", code: "ZW", active: false, link: "/" },
   ],
+  Asia: [
+    {
+      name: "India",
+      flag: "🇮🇳",
+      code: "IN",
+      active: false, // change à true si tu veux activer
+      link: "/",
+    },
+  ],
 };
 
 export default function CountrySelector() {
@@ -172,11 +181,11 @@ export default function CountrySelector() {
         </div>
 
         {/* Countries List */}
-        <div className="w-full px-4">
+        <div className="w-full px-4 ">
           {Object.entries(filteredCountries).map(([region, countryList]) => (
             <Card
               key={region}
-              className="p-6 bg-white border-gray-200 shadow-sm"
+              className="p-6 bg-white border-gray-200 shadow-sm mb-3"
             >
               <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
                 {region}

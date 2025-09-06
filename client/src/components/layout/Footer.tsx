@@ -1,19 +1,17 @@
-import { Link } from "react-router-dom";
 import {
-  Phone,
-  Mail,
-  MapPin,
   Facebook,
-  Twitter,
   Instagram,
   Linkedin,
+  Mail,
+  MapPin,
+  Phone,
+  Twitter,
 } from "lucide-react";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
-  const [logoUrl, setLogoUrl] = useState<string>(
-    "/lovable-uploads/elverra-global-logo-new.jpeg",
-  );
+  const [logoUrl, setLogoUrl] = useState<string>("/lovable-uploads/logo.png");
 
   useEffect(() => {
     const fetchLogo = async () => {
@@ -32,8 +30,8 @@ const Footer = () => {
           (file: any) =>
             file.name.toLowerCase().startsWith("logo.") &&
             ["png", "jpg", "jpeg", "webp"].includes(
-              file.name.toLowerCase().split(".").pop() || "",
-            ),
+              file.name.toLowerCase().split(".").pop() || ""
+            )
         );
 
         if (logoFile) {
@@ -65,9 +63,7 @@ const Footer = () => {
                 src={logoUrl}
                 alt="Elverra Global"
                 className="h-8 w-auto object-contain"
-                onError={() =>
-                  setLogoUrl("/lovable-uploads/elverra-global-logo-new.jpeg")
-                }
+                onError={() => setLogoUrl("/logo.png")}
               />
             </div>
             <p className="text-gray-300 mb-6 text-sm">

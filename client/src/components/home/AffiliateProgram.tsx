@@ -75,7 +75,7 @@ const AffiliateProgram = ({ cmsContent }: AffiliateProgramProps) => {
               >
                 <Link
                   to="/affiliate-program"
-                  className="inline-flex items-center"
+                  className="inline-flex items-center text-white"
                 >
                   Learn More
                   <ArrowRight className="ml-2 h-4 w-4" />
