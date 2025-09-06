@@ -203,7 +203,7 @@ const Contact = () => {
                           required
                         >
                           <option value="general">General Inquiry</option>
-                          <option value="membership">Membership Questions</option>
+                          <option value="membership">Client Subscription Questions</option>
                           <option value="technical">Technical Support</option>
                           <option value="partnership">Partnership</option>
                           <option value="complaint">Complaint/Issue</option>

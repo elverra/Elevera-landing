@@ -217,7 +217,7 @@ const HeroSlider = ({ cmsContent }: HeroSliderProps) => {
                           <div className="flex items-center justify-center mb-2">
                             <TrendingUp className="h-6 w-6 text-green-400" />
                           </div>
-                          <p className="text-3xl font-bold text-white">5-20%</p>
+                          <p className="text-3xl font-bold text-white">5-40%</p>
                           <p className="text-sm text-gray-300">
                             Client Discounts
                           </p>

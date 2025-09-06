@@ -196,7 +196,7 @@ const Header = () => {
 
             {/* Our Affiliates Dropdown */}
             <Link
-              to="/jobs"
+              to="/affiliate-program"
               className="text-gray-600 hover:text-purple-600 transition-colors font-medium"
             >
               Affiliate Program
