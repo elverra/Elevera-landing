@@ -1,5 +1,5 @@
-import { Users, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ArrowRight, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 
 interface CMSPage {
@@ -94,7 +94,7 @@ const AffiliateProgram = ({ cmsContent }: AffiliateProgramProps) => {
                     <div className="flex justify-between items-center mb-2">
                       <span className="text-gray-300">Essential Client</span>
                       <div className="text-club66-gold font-semibold">
-                        CFA 1,000/yearly
+                        CFA 10,000/yearly
                       </div>
                     </div>
                     <div className="flex justify-between items-center">
@@ -102,7 +102,7 @@ const AffiliateProgram = ({ cmsContent }: AffiliateProgramProps) => {
                         Your commission (10%)
                       </span>
                       <div className="text-club66-gold font-bold">
-                        CFA 100/yearly
+                        CFA 1000/yearly
                       </div>
                     </div>
                   </div>
@@ -111,7 +111,7 @@ const AffiliateProgram = ({ cmsContent }: AffiliateProgramProps) => {
                     <div className="flex justify-between items-center mb-2">
                       <span className="text-gray-300">Premium Client</span>
                       <div className="text-club66-gold font-semibold">
-                        CFA 2,000/yearly
+                        CFA 10,000/yearly
                       </div>
                     </div>
                     <div className="flex justify-between items-center">
@@ -119,7 +119,7 @@ const AffiliateProgram = ({ cmsContent }: AffiliateProgramProps) => {
                         Your commission (10%)
                       </span>
                       <div className="text-club66-gold font-bold">
-                        CFA 200/yearly
+                        CFA 1000/yearly
                       </div>
                     </div>
                   </div>
@@ -128,7 +128,7 @@ const AffiliateProgram = ({ cmsContent }: AffiliateProgramProps) => {
                     <div className="flex justify-between items-center mb-2">
                       <span className="text-gray-300">Elite Client</span>
                       <div className="text-club66-gold font-semibold">
-                        CFA 5,000/yearly
+                        CFA 10,000/yearly
                       </div>
                     </div>
                     <div className="flex justify-between items-center">
@@ -136,7 +136,7 @@ const AffiliateProgram = ({ cmsContent }: AffiliateProgramProps) => {
                         Your commission (10%)
                       </span>
                       <div className="text-club66-gold font-bold">
-                        CFA 500/yearly
+                        CFA 1000/yearly
                       </div>
                     </div>
                   </div>
@@ -145,7 +145,7 @@ const AffiliateProgram = ({ cmsContent }: AffiliateProgramProps) => {
                     <div className="flex justify-between items-center">
                       <span className="text-gray-300">10 Elite Referrals</span>
                       <div className="text-club66-gold font-bold">
-                        CFA 5,000/yearly
+                        CFA 100,000/yearly
                       </div>
                     </div>
                   </div>
