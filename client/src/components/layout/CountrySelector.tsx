@@ -161,7 +161,6 @@ export default function CountrySelector() {
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 text-balance">
             Choose Local Elverra Global Website
           </h1>
-
           {/* Search Bar */}
           <div className="max-w-md mx-auto relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4 " />
@@ -173,8 +172,7 @@ export default function CountrySelector() {
               className="pl-10 bg-white border-gray-300"
             />
           </div>
-
-          {/* Globe */}
+          Globe
           <div className="mb-6 mt-8">
             <WorldMap
               dots={[

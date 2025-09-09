@@ -92,7 +92,7 @@ const AffiliateProgram = ({ cmsContent }: AffiliateProgramProps) => {
                 <div className="space-y-6">
                   <div className="bg-gray-700/50 rounded-md p-4">
                     <div className="flex justify-between items-center mb-2">
-                      <span className="text-gray-300">Essential Client</span>
+                      <span className="text-gray-300">Essential Clientx</span>
                       <div className="text-club66-gold font-semibold">
                         CFA 10,000/yearly
                       </div>
@@ -145,7 +145,7 @@ const AffiliateProgram = ({ cmsContent }: AffiliateProgramProps) => {
                     <div className="flex justify-between items-center">
                       <span className="text-gray-300">10 Elite Referrals</span>
                       <div className="text-club66-gold font-bold">
-                        CFA 100,000/yearly
+                        CFA 10,000/yearly
                       </div>
                     </div>
                   </div>

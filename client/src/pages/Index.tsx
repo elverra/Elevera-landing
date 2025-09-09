@@ -1,14 +1,14 @@
-import { useState, useEffect } from 'react';
-import Layout from '@/components/layout/Layout';
-import HeroSlider from '@/components/home/HeroSlider';
-import AboutSection from '@/components/home/AboutSection';
-import Benefits from '@/components/home/Benefits';
-import MembershipPlans from '@/components/home/MembershipPlans';
-import DigitalCard from '@/components/home/DigitalCard';
-import CardShowcase from '@/components/home/CardShowcase';
-import SocialBenefits from '@/components/home/SocialBenefits';
-import AffiliateProgram from '@/components/home/AffiliateProgram';
-import CTA from '@/components/home/CTA';
+import Globe from "@/components/globe";
+import AboutSection from "@/components/home/AboutSection";
+import AffiliateProgram from "@/components/home/AffiliateProgram";
+import Benefits from "@/components/home/Benefits";
+import CardShowcase from "@/components/home/CardShowcase";
+import CTA from "@/components/home/CTA";
+import DigitalCard from "@/components/home/DigitalCard";
+import MembershipPlans from "@/components/home/MembershipPlans";
+import SocialBenefits from "@/components/home/SocialBenefits";
+import Layout from "@/components/layout/Layout";
+import { useEffect, useState } from "react";
 
 interface CMSPage {
   id: string;
@@ -37,7 +37,7 @@ const Index = () => {
       const { data, error } = mockResult;
 
       if (error) {
-        console.error('Error fetching CMS content:', error);
+        console.error("Error fetching CMS content:", error);
       } else if (data) {
         const contentMap = (data as CMSPage[]).reduce((acc, page) => {
           acc[page.slug] = page;
@@ -46,7 +46,7 @@ const Index = () => {
         setCmsContent(contentMap);
       }
     } catch (error) {
-      console.error('Error fetching CMS content:', error);
+      console.error("Error fetching CMS content:", error);
     } finally {
       setLoading(false);
     }
@@ -68,31 +68,33 @@ const Index = () => {
   return (
     <Layout>
       {/* Hero Slider Section */}
-      <HeroSlider cmsContent={cmsContent['home-hero-slider']} />
-      
+      {/* <HeroSlider cmsContent={cmsContent['home-hero-slider']} /> */}
+      <div className="p-3 bg-gradient-to-br from-purple-50 to-blue-50">
+        <Globe />
+      </div>
       {/* About Section */}
-      <AboutSection cmsContent={cmsContent['home-about-section']} />
-      
+      <AboutSection cmsContent={cmsContent["home-about-section"]} />
+
       {/* Benefits Section */}
-      <Benefits cmsContent={cmsContent['home-benefits-section']} />
-      
+      <Benefits cmsContent={cmsContent["home-benefits-section"]} />
+
       {/* Membership Plans Section */}
-      <MembershipPlans cmsContent={cmsContent['home-membership-plans']} />
-      
+      <MembershipPlans cmsContent={cmsContent["home-membership-plans"]} />
+
       {/* Digital Card Section */}
-      <DigitalCard cmsContent={cmsContent['home-digital-card']} />
-      
+      <DigitalCard cmsContent={cmsContent["home-digital-card"]} />
+
       {/* Card Showcase Section */}
       <CardShowcase />
-      
+
       {/* Social Benefits Section */}
-      <SocialBenefits cmsContent={cmsContent['home-social-benefits']} />
-      
+      <SocialBenefits cmsContent={cmsContent["home-social-benefits"]} />
+
       {/* Affiliate Program Section */}
-      <AffiliateProgram cmsContent={cmsContent['home-affiliate-program']} />
-      
+      <AffiliateProgram cmsContent={cmsContent["home-affiliate-program"]} />
+
       {/* Call to Action Section */}
-      <CTA cmsContent={cmsContent['home-cta-section']} />
+      <CTA cmsContent={cmsContent["home-cta-section"]} />
     </Layout>
   );
 };

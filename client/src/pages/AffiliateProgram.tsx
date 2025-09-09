@@ -10,7 +10,6 @@ import {
 } from "@/components/ui/card";
 import {
   ArrowRight,
-  Award,
   Clock,
   DollarSign,
   Shield,
@@ -184,41 +183,6 @@ const AffiliateProgram = () => {
               </div>
             </div>
 
-            {/* Affiliate Tiers */}
-            <div className="mb-16">
-              <h2 className="text-3xl font-bold text-center mb-12">
-                Affiliate Tiers & Bonuses
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-                {tiers.map((tier, index) => (
-                  <Card
-                    key={index}
-                    className={`border-2 ${tier.color} hover:shadow-lg transition-shadow`}
-                  >
-                    <CardHeader className="text-center">
-                      <Award className="h-8 w-8 mx-auto mb-2 text-purple-600" />
-                      <CardTitle className="text-lg">{tier.name}</CardTitle>
-                      <CardDescription>
-                        {tier.referrals} referrals
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent className="text-center">
-                      <div className="text-2xl font-bold text-purple-600 mb-2">
-                        +{tier.bonus}
-                      </div>
-                      <p className="text-sm text-gray-600">Extra Bonus</p>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-              <div className="text-center mt-6">
-                <p className="text-gray-600">
-                  <strong>Base commission:</strong> 10% + tier bonus on all
-                  referral client fees
-                </p>
-              </div>
-            </div>
-
             {/* Earnings Calculator */}
             <Card className="mb-16">
               <CardHeader>
@@ -233,20 +197,20 @@ const AffiliateProgram = () => {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   <div className="bg-gray-50 rounded-lg p-6 text-center">
                     <h3 className="text-lg font-semibold mb-2">
-                      Essential Clients
+                      Essential Client
                     </h3>
                     <div className="text-2xl font-bold text-green-600 mb-2">
-                      CFA 100/month
+                      CFA 1000/ans
                     </div>
                     <p className="text-sm text-gray-600">
                       Per referral (10% of CFA 1,000)
                     </p>
                     <div className="mt-4 text-sm">
                       <div>
-                        10 referrals = <strong>CFA 1,000/month</strong>
+                        10 referrals = <strong>CFA 10,000/ans</strong>
                       </div>
                       <div>
-                        50 referrals = <strong>CFA 5,000/month</strong>
+                        50 referrals = <strong>CFA 50,000/ans</strong>
                       </div>
                     </div>
                   </div>
@@ -256,17 +220,14 @@ const AffiliateProgram = () => {
                       Premium Clients
                     </h3>
                     <div className="text-2xl font-bold text-purple-600 mb-2">
-                      CFA 200/month
+                      CFA 1000/ans
                     </div>
                     <p className="text-sm text-gray-600">
-                      Per referral (10% of CFA 2,000)
+                      Per referral (10% of CFA 1,000)
                     </p>
                     <div className="mt-4 text-sm">
                       <div>
-                        10 referrals = <strong>CFA 2,000/month</strong>
-                      </div>
-                      <div>
-                        50 referrals = <strong>CFA 10,000/month</strong>
+                        10 referrals = <strong>CFA 10,000/ans</strong>
                       </div>
                     </div>
                   </div>
@@ -276,17 +237,17 @@ const AffiliateProgram = () => {
                       Elite Clients
                     </h3>
                     <div className="text-2xl font-bold text-yellow-600 mb-2">
-                      CFA 500/month
+                      CFA 1000/ans
                     </div>
                     <p className="text-sm text-gray-600">
                       Per referral (10% of CFA 5,000)
                     </p>
                     <div className="mt-4 text-sm">
                       <div>
-                        10 referrals = <strong>CFA 5,000/month</strong>
+                        7 referrals = <strong>CFA 7,000/ans</strong>
                       </div>
                       <div>
-                        50 referrals = <strong>CFA 25,000/month</strong>
+                        10 referrals = <strong>CFA 10,000/ans</strong>
                       </div>
                     </div>
                   </div>
