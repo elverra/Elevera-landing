@@ -62,6 +62,7 @@ const MembershipPlans = ({ cmsContent }: MembershipPlansProps) => {
         "Payday loans (8% flat interest)",
       ],
     },
+
     {
       name: "Premium",
       image: "/lovable-uploads/premium-card.png",
@@ -107,6 +108,26 @@ const MembershipPlans = ({ cmsContent }: MembershipPlansProps) => {
         "Exclusive event invitations",
         "Free business training",
         "Investment opportunities",
+      ],
+    },
+    {
+      name: "Essential",
+      image: "/lovable-uploads/Zenika.png",
+      price: "10,000",
+      height: "195px",
+      width: "325px",
+      monthly: "1,000",
+      discount: "5%",
+      color: "bg-gray-100",
+      textColor: "text-gray-900",
+      buttonVariant: "outline",
+      features: [
+        "5% discount at Elverra businesses",
+        "Digital Value Card",
+        "Access to partner discounts",
+        "Client community access",
+        "Access to job center",
+        "Payday loans (8% flat interest)",
       ],
     },
   ];

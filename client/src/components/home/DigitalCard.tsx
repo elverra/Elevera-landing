@@ -124,9 +124,7 @@ const DigitalCard = ({ cmsContent }: DigitalCardProps) => {
                 (e.currentTarget.style.backgroundColor = "#8b5cf6")
               }
             >
-              <Link to={user ? "/dashboard" : "/register"}>
-                {user ? "View Your Digital Card" : "Get Your Digital Card"}
-              </Link>
+              <Link to="/selectCountry">Get Your Digital Card</Link>
             </Button>
           </div>
         </div>
