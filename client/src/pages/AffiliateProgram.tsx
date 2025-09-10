@@ -220,7 +220,7 @@ const AffiliateProgram = () => {
                       Premium Clients
                     </h3>
                     <div className="text-2xl font-bold text-purple-600 mb-2">
-                      CFA 1000/ans
+                      CFA 10,000/ans
                     </div>
                     <p className="text-sm text-gray-600">
                       Per referral (10% of CFA 1,000)
