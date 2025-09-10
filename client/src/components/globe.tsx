@@ -72,7 +72,7 @@ const Globe: React.FC = () => {
           ></div>
 
           <div className="rotating-text text-elverra">Elverra Global</div>
-          <div className="rotating-text text-zenika">Zenika</div>
+          <div className="rotating-text text-zenika">Zenika Carte</div>
 
           {/* Stars */}
           <div
