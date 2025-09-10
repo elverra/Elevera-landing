@@ -1,36 +1,47 @@
-
-import Layout from '@/components/layout/Layout';
-import PremiumBanner from '@/components/layout/PremiumBanner';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { PiggyBank, Clock, Shield, CheckCircle, AlertCircle } from 'lucide-react';
+import Layout from "@/components/layout/Layout";
+import PremiumBanner from "@/components/layout/PremiumBanner";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  AlertCircle,
+  CheckCircle,
+  Clock,
+  PiggyBank,
+  Shield,
+} from "lucide-react";
 
 const PaydayAdvance = () => {
   const features = [
     {
       icon: Clock,
-      title: 'Quick Processing',
-      description: 'Get your advance within 24 hours of approval'
+      title: "Quick Processing",
+      description: "Get your advance within 24 hours of approval",
     },
     {
       icon: Shield,
-      title: 'Secure Transactions',
-      description: 'All transactions are encrypted and secure'
+      title: "Secure Transactions",
+      description: "All transactions are encrypted and secure",
     },
     {
       icon: CheckCircle,
-      title: 'Easy Repayment',
-      description: 'Flexible repayment options to suit your needs'
-    }
+      title: "Easy Repayment",
+      description: "Flexible repayment options to suit your needs",
+    },
   ];
 
   const requirements = [
-    'Active Elverra Global Client',
-    'Minimum 3 months Client history',
-    'Valid government-issued ID',
-    'Proof of income or employment',
-    'Bank account for disbursement'
+    "Active Elverra Global Client",
+    "Minimum 3 months Client history",
+    "Valid government-issued ID",
+    "Proof of income or employment",
+    "Bank account for disbursement",
   ];
 
   return (
@@ -45,16 +56,17 @@ const PaydayAdvance = () => {
       <div className="py-16 bg-gradient-to-br from-orange-50 to-yellow-100">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            
             {/* Hero Section */}
             <div className="text-center mb-12">
               <div className="bg-gradient-to-br from-orange-100 to-yellow-100 p-6 rounded-full w-24 h-24 mx-auto mb-6 flex items-center justify-center">
                 <PiggyBank className="h-12 w-12 text-orange-600" />
               </div>
-              <h2 className="text-3xl font-bold mb-4">Quick Cash When You Need It</h2>
+              <h2 className="text-3xl font-bold mb-4">
+                Quick Cash When You Need It
+              </h2>
               <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                Get immediate financial assistance with our payday advance service. 
-                Perfect for unexpected expenses or emergencies.
+                Get immediate financial assistance with our payday advance
+                service. Perfect for unexpected expenses or emergencies.
               </p>
             </div>
 
@@ -93,7 +105,10 @@ const PaydayAdvance = () => {
                 <ul className="space-y-3">
                   {requirements.map((requirement, index) => (
                     <li key={index} className="flex items-center">
-                      <Badge variant="outline" className="mr-3 bg-green-50 text-green-700">
+                      <Badge
+                        variant="outline"
+                        className="mr-3 bg-green-50 text-green-700"
+                      >
                         ✓
                       </Badge>
                       {requirement}
@@ -115,23 +130,24 @@ const PaydayAdvance = () => {
                 <div>
                   <h4 className="font-semibold mb-2">Advance Limits</h4>
                   <p className="text-gray-600 text-sm">
-                    • Minimum advance: 25,000 CFA<br />
-                    • Maximum advance: 500,000 CFA (based on client tier)
+                    • Minimum advance: 25,000 CFA
+                    <br />• Maximum advance: 500,000 CFA (based on client tier)
                   </p>
                 </div>
                 <div>
                   <h4 className="font-semibold mb-2">Repayment Terms</h4>
                   <p className="text-gray-600 text-sm">
-                    • Repayment period: 15-30 days<br />
-                    • Service fee: 5-10% of advance amount<br />
-                    • No hidden charges or penalties for early repayment
+                    • Repayment period: 15-30 days
+                    <br />
+                    • Service fee: 5-10% of advance amount
+                    <br />• No hidden charges or penalties for early repayment
                   </p>
                 </div>
                 <div>
                   <h4 className="font-semibold mb-2">Processing Time</h4>
                   <p className="text-gray-600 text-sm">
-                    • Application review: 2-4 hours<br />
-                    • Fund disbursement: Within 24 hours of approval
+                    • Application review: 2-4 hours
+                    <br />• Fund disbursement: Within 24 hours of approval
                   </p>
                 </div>
               </CardContent>
@@ -143,15 +159,21 @@ const PaydayAdvance = () => {
                 <CardContent className="p-8">
                   <h3 className="text-2xl font-bold mb-4">Ready to Apply?</h3>
                   <p className="text-lg mb-6 opacity-90">
-                    Get the cash you need today with our quick and secure payday advance service.
+                    Get the cash you need today with our quick and secure payday
+                    advance service.
                   </p>
                   <div className="flex flex-wrap gap-4 justify-center">
-                    <Button size="lg" className="bg-white text-orange-600 hover:bg-gray-100">
+                    <Button
+                      size="lg"
+                      className="bg-white text-orange-600 hover:bg-gray-100"
+                      onClick={() => (window.location.href = "/selectCountry")}
+                    >
                       Apply Now
                     </Button>
-                    <Button 
-                      size="lg" 
-                      variant="outline" 
+                    <Button
+                      onClick={() => (window.location.href = "/selectCountry")}
+                      size="lg"
+                      variant="outline"
                       className="border-white text-black hover:bg-white/10"
                     >
                       Learn More

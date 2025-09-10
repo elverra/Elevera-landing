@@ -46,9 +46,7 @@ const CTA = ({ cmsContent }: CTAProps) => {
               className="text-gray-900 hover:opacity-90"
               style={{ backgroundColor: "#efc044" }}
             >
-              <Link to={"/selectCountry"}>
-                {user ? "Go to Dashboard" : "Sign Up Now"}
-              </Link>
+              <Link to={"/selectCountry"}>Join Elverra Global</Link>
             </Button>
             <Button
               asChild
@@ -56,7 +54,7 @@ const CTA = ({ cmsContent }: CTAProps) => {
               variant="outline"
               className="bg-transparent border-white text-white hover:bg-white/10"
             >
-              <Link to="/about/contact">Contact Us</Link>
+              <Link to="/selectCountry">Contact Us</Link>
             </Button>
           </div>
 

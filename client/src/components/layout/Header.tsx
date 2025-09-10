@@ -98,9 +98,7 @@ const Header = () => {
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
 
-                <DropdownMenuItem asChild>
-                  <Link to="/about/contact">{t("nav.about.contact")}</Link>
-                </DropdownMenuItem>
+                <DropdownMenuItem asChild></DropdownMenuItem>
                 <DropdownMenuItem asChild>
                   <Link to="/about/projects">{t("nav.about.projects")}</Link>
                 </DropdownMenuItem>

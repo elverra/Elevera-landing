@@ -200,10 +200,10 @@ const AffiliateProgram = () => {
                       Essential Client
                     </h3>
                     <div className="text-2xl font-bold text-green-600 mb-2">
-                      CFA 1000/ans
+                      CFA 10,000/ans
                     </div>
                     <p className="text-sm text-gray-600">
-                      Per referral (10% of CFA 1,000)
+                      Per referral (10% of CFA 1000)
                     </p>
                     <div className="mt-4 text-sm">
                       <div>
@@ -223,7 +223,7 @@ const AffiliateProgram = () => {
                       CFA 10,000/ans
                     </div>
                     <p className="text-sm text-gray-600">
-                      Per referral (10% of CFA 1,000)
+                      Per referral (10% of CFA 1000)
                     </p>
                     <div className="mt-4 text-sm">
                       <div>
@@ -237,10 +237,10 @@ const AffiliateProgram = () => {
                       Elite Clients
                     </h3>
                     <div className="text-2xl font-bold text-yellow-600 mb-2">
-                      CFA 1000/ans
+                      CFA 10,000/ans
                     </div>
                     <p className="text-sm text-gray-600">
-                      Per referral (10% of CFA 5,000)
+                      Per referral (10% of CFA 1000))
                     </p>
                     <div className="mt-4 text-sm">
                       <div>
@@ -289,6 +289,7 @@ const AffiliateProgram = () => {
                 <Button
                   size="lg"
                   className="bg-white text-purple-600 hover:bg-gray-100"
+                  onClick={() => navigate("/selectCountry")}
                 >
                   Join Affiliate Program
                 </Button>

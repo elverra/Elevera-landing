@@ -86,12 +86,12 @@ const CardShowcase = () => {
           <img
             src="/lovable-uploads/Zenika.png"
             alt="Elite ZENIKA Card"
-            className="w-[310px] h-[400px] max-w-sm object-contain"
+            className="w-[310px] h-[400px] mt-6 max-w-sm object-contain"
           />
         </div>
       </div>
 
-      <div className="text-center mt-12">
+      <div className="text-center">
         <div className="inline-flex items-center gap-4 bg-white rounded-full px-8 py-4 shadow-lg">
           <span className="text-gray-600">
             Join the community of fortunate clients and consumers

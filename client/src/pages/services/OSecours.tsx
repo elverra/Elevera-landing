@@ -1,13 +1,12 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Layout from "@/components/layout/Layout";
 import PremiumBanner from "@/components/layout/PremiumBanner";
-import SecoursSubscriptions from "@/components/secours/SecoursSubscriptions";
-import TokenPurchase from "@/components/secours/TokenPurchase";
+import NotificationCenter from "@/components/secours/NotificationCenter";
 import RescueRequest from "@/components/secours/RescueRequest";
 import SecoursStats from "@/components/secours/SecoursStats";
-import NotificationCenter from "@/components/secours/NotificationCenter";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import SecoursSubscriptions from "@/components/secours/SecoursSubscriptions";
+import TokenPurchase from "@/components/secours/TokenPurchase";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -15,25 +14,21 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsContent } from "@/components/ui/tabs";
 import {
-  Shield,
-  Coins,
   AlertTriangle,
-  BarChart3,
-  School,
-  Bike,
-  Phone,
-  Car,
-  Plus,
   ArrowRight,
+  Bike,
+  Car,
+  Phone,
+  Plus,
+  School,
+  Shield,
   Star,
   User,
 } from "lucide-react";
-import { useAuth } from "@/hooks/useAuth";
-import { useMembership } from "@/hooks/useMembership";
-import { toast } from "sonner";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const OSecours = () => {
   const [activeTab, setActiveTab] = useState("services");
@@ -100,21 +95,21 @@ const OSecours = () => {
       color: "bg-purple-500",
       route: "/services/secours/first-aid",
     },
-    
+    {
+      id: "cata-catani",
+      title: "Cata Catani",
+      subtitle: "Motorcycle Emergency",
+      caption: "Get Help Fast, Stay Safe Always!",
+      description:
+        "Emergency support for motorcycle repairs, breakdowns, and roadside assistance.",
+      image: "/lovable-uploads/cata.png",
+      icon: Plus,
+      color: "bg-purple-500",
+      route: "/services/secours/cata-catani",
+    },
   ];
 
-  const { user } = useAuth();
-  const { getMembershipAccess } = useMembership();
-
   const handleServiceClick = (service: any) => {
-    if (!user) {
-      toast.success(
-        `${service.title} service details available. Sign up to subscribe!`,
-      );
-      navigate("/register");
-      return;
-    }
-
     // Allow users to view service details regardless of membership
     navigate(service.route);
   };
@@ -157,42 +152,6 @@ const OSecours = () => {
               onValueChange={setActiveTab}
               className="w-full"
             >
-              <TabsList className="grid w-full grid-cols-6 mb-8">
-                <TabsTrigger
-                  value="services"
-                  className="flex items-center gap-2"
-                >
-                  <Shield className="h-4 w-4" />
-                  Services
-                </TabsTrigger>
-                <TabsTrigger
-                  value="subscriptions"
-                  className="flex items-center gap-2"
-                >
-                  <Shield className="h-4 w-4" />
-                  Subscriptions
-                </TabsTrigger>
-                <TabsTrigger value="tokens" className="flex items-center gap-2">
-                  <Coins className="h-4 w-4" />
-                  Buy Tokens
-                </TabsTrigger>
-                <TabsTrigger value="rescue" className="flex items-center gap-2">
-                  <AlertTriangle className="h-4 w-4" />
-                  Request Rescue
-                </TabsTrigger>
-                <TabsTrigger value="stats" className="flex items-center gap-2">
-                  <BarChart3 className="h-4 w-4" />
-                  My Stats
-                </TabsTrigger>
-                <TabsTrigger
-                  value="account"
-                  className="flex items-center gap-2"
-                >
-                  <User className="h-4 w-4" />
-                  My Account
-                </TabsTrigger>
-              </TabsList>
-
               <TabsContent value="services">
                 <div className="mb-12 text-center">
                   <h2 className="text-4xl font-bold mb-6 text-gray-800">
@@ -327,6 +286,7 @@ const OSecours = () => {
                       <Button
                         variant="outline"
                         className="bg-white text-purple-600 hover:bg-gray-100 font-semibold"
+                        onClick={() => navigate("/selectCountry")}
                       >
                         Learn More About Our System
                       </Button>
@@ -348,6 +308,7 @@ const OSecours = () => {
                       <Button
                         variant="outline"
                         className="bg-white text-orange-600 hover:bg-gray-100 font-semibold"
+                        onClick={() => navigate("/selectCountry")}
                       >
                         Start Your Protection
                       </Button>
