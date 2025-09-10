@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
 import Layout from "@/components/layout/Layout";
 import PremiumBanner from "@/components/layout/PremiumBanner";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import {
   Select,
@@ -12,13 +11,13 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Search, MapPin, Store, Percent, Star, Loader2 } from "lucide-react";
-import { useDiscounts, useDiscountUsage } from "@/hooks/useDiscounts";
-import { toast } from "sonner";
 import { useAuth } from "@/hooks/useAuth";
-import { useNavigate } from "react-router-dom";
-import MembershipGuard from "@/components/membership/MembershipGuard";
+import { useDiscounts, useDiscountUsage } from "@/hooks/useDiscounts";
 import { useMembership } from "@/hooks/useMembership";
+import { Loader2, MapPin, Search, Star, Store } from "lucide-react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 const Discounts = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -108,7 +107,7 @@ const Discounts = () => {
 
     await recordDiscountUsage(discount.id, discount.discount_percentage);
     toast.success(
-      `Successfully claimed ${discount.discount_percentage}% discount at ${discount.merchant}`,
+      `Successfully claimed ${discount.discount_percentage}% discount at ${discount.merchant}`
     );
   };
 
@@ -143,7 +142,7 @@ const Discounts = () => {
     avgDiscount:
       Math.round(
         allDiscounts.reduce((sum, d) => sum + d.discount_percentage, 0) /
-          allDiscounts.length,
+          allDiscounts.length
       ) || 0,
     clients: "50K+",
   };
@@ -197,9 +196,9 @@ const Discounts = () => {
                       {Array.from(
                         new Set(
                           allDiscounts.map((d) =>
-                            d.location.split(",").pop()?.trim(),
-                          ),
-                        ),
+                            d.location.split(",").pop()?.trim()
+                          )
+                        )
                       ).map((location) => (
                         <SelectItem key={location} value={location || ""}>
                           {location}
@@ -260,9 +259,6 @@ const Discounts = () => {
 
             {/* Sectors Grid */}
             <div className="mb-12">
-              <h2 className="text-2xl font-bold mb-6 text-center">
-                Discounts by Sector
-              </h2>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
                 {discountSectors.map((sector) => (
                   <Card
@@ -282,92 +278,6 @@ const Discounts = () => {
                   </Card>
                 ))}
               </div>
-            </div>
-
-            {/* Featured Discounts */}
-            <div className="mb-12">
-              <h2 className="text-2xl font-bold mb-6 text-center">
-                Featured Discounts
-              </h2>
-              {featuredDiscounts.length > 0 ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {featuredDiscounts.map((discount) => (
-                    <Card
-                      key={discount.id}
-                      className="overflow-hidden hover:shadow-xl transition-shadow"
-                    >
-                      <div className="relative">
-                        <img
-                          src={
-                            discount.image_url ||
-                            "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-                          }
-                          alt={discount.title}
-                          className="w-full h-48 object-cover"
-                        />
-                        <div className="absolute top-4 right-4">
-                          <Badge className="bg-green-500 text-white text-lg px-3 py-1">
-                            {discount.discount_percentage}% OFF
-                          </Badge>
-                        </div>
-                        <div className="absolute top-4 left-4">
-                          <Badge className="bg-orange-500 text-white px-2 py-1">
-                            Featured
-                          </Badge>
-                        </div>
-                      </div>
-                      <CardContent className="p-6">
-                        <div className="flex items-center justify-between mb-2">
-                          <h3 className="font-bold text-lg">
-                            {discount.title}
-                          </h3>
-                          <div className="flex items-center gap-1">
-                            <Star className="h-4 w-4 text-yellow-400 fill-current" />
-                            <span className="text-sm text-gray-600">
-                              {discount.rating || 4.5}
-                            </span>
-                          </div>
-                        </div>
-                        <p className="text-sm text-gray-700 font-medium mb-2">
-                          {discount.merchant}
-                        </p>
-                        <Badge variant="outline" className="mb-3">
-                          {discount.sector}
-                        </Badge>
-                        <p className="text-gray-600 mb-4">
-                          {discount.description}
-                        </p>
-                        <div className="flex items-center text-sm text-gray-500 mb-4">
-                          <MapPin className="h-4 w-4 mr-1" />
-                          {discount.location}
-                        </div>
-                        {discount.terms && (
-                          <p className="text-xs text-gray-500 mb-4 italic">
-                            {discount.terms}
-                          </p>
-                        )}
-                        <Button
-                          className="w-full bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600"
-                          onClick={() => handleClaimDiscount(discount)}
-                        >
-                          <Percent className="h-4 w-4 mr-2" />
-                          Claim Featured Discount
-                        </Button>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-              ) : (
-                <div className="text-center py-8">
-                  <Store className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-                  <h3 className="text-xl font-semibold text-gray-600 mb-2">
-                    No featured discounts available
-                  </h3>
-                  <p className="text-gray-500">
-                    Check back later for new featured offers
-                  </p>
-                </div>
-              )}
             </div>
 
             {/* All Discounts */}
@@ -456,7 +366,9 @@ const Discounts = () => {
                   size="lg"
                   variant="outline"
                   className="bg-white text-purple-600 hover:bg-gray-100"
-                  onClick={() => user ? navigate("/dashboard") : navigate("/register")}
+                  onClick={() =>
+                    user ? navigate("/dashboard") : navigate("/register")
+                  }
                   data-testid="button-become-member"
                 >
                   Become a Client
