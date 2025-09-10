@@ -1,8 +1,10 @@
+"use client";
+
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Search, X } from "lucide-react";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom"; // ✅ utiliser useNavigate
+import { useNavigate } from "react-router-dom"; // ✅ utiliser useNavigate
 import { WorldMap } from "../world-map";
 
 interface Country {
@@ -143,16 +145,20 @@ export default function CountrySelector() {
     setSelectedCountry(null);
   };
 
+  const handleGoBack = () => {
+    navigate(-1); // Go back to previous page in history
+  };
+
   return (
     <div className="min-h-screen bg-white relative">
       {/* Close Button */}
       <div className="absolute top-6 right-6 z-20">
-        <Link
-          to="/" // ou une route interne, comme "/selectCountry"
+        <button
+          onClick={handleGoBack}
           className="text-gray-600 hover:bg-gray-100 rounded-full p-1 inline-flex"
         >
           <X className="h-6 w-6" />
-        </Link>
+        </button>
       </div>
 
       <div className="relative z-10 container mx-auto px-6 py-12">
@@ -172,39 +178,32 @@ export default function CountrySelector() {
               className="pl-10 bg-white border-gray-300"
             />
           </div>
-          Globe
           <div className="mb-6 mt-8">
             <WorldMap
               dots={[
                 {
-                  start: {
-                    lat: 64.2008,
-                    lng: -149.4937,
-                  }, // Alaska (Fairbanks)
-                  end: {
-                    lat: 34.0522,
-                    lng: -118.2437,
-                  }, // Los Angeles
+                  start: { lat: 17.0608, lng: -61.7964 }, // Mali
+                  end: { lat: 30.0444, lng: 31.2357 }, // Egypt (Cairo)
                 },
                 {
-                  start: { lat: 64.2008, lng: -149.4937 }, // Alaska (Fairbanks)
-                  end: { lat: -15.7975, lng: -47.8919 }, // Brazil (Brasília)
+                  start: { lat: 17.0608, lng: -61.7964 }, // Mali
+                  end: { lat: -26.2041, lng: 28.0473 }, // South Africa (Johannesburg)
                 },
                 {
-                  start: { lat: -15.7975, lng: -47.8919 }, // Brazil (Brasília)
-                  end: { lat: 38.7223, lng: -9.1393 }, // Lisbon
+                  start: { lat: 30.0444, lng: 31.2357 }, // Egypt
+                  end: { lat: -1.2921, lng: 36.8219 }, // Kenya (Nairobi)
                 },
                 {
-                  start: { lat: 51.5074, lng: -0.1278 }, // London
-                  end: { lat: 28.6139, lng: 77.209 }, // New Delhi
+                  start: { lat: -1.2921, lng: 36.8219 }, // Kenya
+                  end: { lat: 6.5244, lng: 3.3792 }, // Nigeria (Lagos)
                 },
                 {
-                  start: { lat: 28.6139, lng: 77.209 }, // New Delhi
-                  end: { lat: 43.1332, lng: 131.9113 }, // Vladivostok
+                  start: { lat: 6.5244, lng: 3.3792 }, // Nigeria
+                  end: { lat: 33.8869, lng: 9.5375 }, // Tunisia (Tunis)
                 },
                 {
-                  start: { lat: 28.6139, lng: 77.209 }, // New Delhi
-                  end: { lat: -1.2921, lng: 36.8219 }, // Nairobi
+                  start: { lat: -26.2041, lng: 28.0473 }, // South Africa
+                  end: { lat: 17.0608, lng: -61.7964 }, // Back to Mali
                 },
               ]}
             />
