@@ -11,7 +11,7 @@ const Globe: React.FC = () => {
           }
           @keyframes twinkling { 0%,100% { opacity:0.1; } 50% { opacity:1; } }
           @keyframes twinkling-slow { 0%,100% { opacity:0.1; } 50% { opacity:1; } }
-          @keyframes twinkling-long { 0%,100% { opacity:0.1; } 50% { opacity:1; } }
+          @keyframes twinkling-long { 0%,100% { opacity:0.1; } 50% {  opacity:1; } }
           @keyframes twinkling-fast { 0%,100% { opacity:0.1; } 50% { opacity:1; } }
           
           @keyframes rotateAroundGlobe {
