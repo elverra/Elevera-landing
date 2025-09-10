@@ -1,4 +1,5 @@
-import React from "react";
+import type React from "react";
+
 const Globe: React.FC = () => {
   return (
     <>
@@ -12,6 +13,37 @@ const Globe: React.FC = () => {
           @keyframes twinkling-slow { 0%,100% { opacity:0.1; } 50% { opacity:1; } }
           @keyframes twinkling-long { 0%,100% { opacity:0.1; } 50% { opacity:1; } }
           @keyframes twinkling-fast { 0%,100% { opacity:0.1; } 50% { opacity:1; } }
+          
+          @keyframes rotateAroundGlobe {
+            0% { transform: rotate(0deg) translateX(200px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(200px) rotate(-360deg); }
+          }
+          
+          @keyframes textFadeInOut {
+            0%, 45% { opacity: 1; }
+            50%, 95% { opacity: 0; }
+            100% { opacity: 1; }
+          }
+          
+          .rotating-text {
+            position: absolute;
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6);
+            animation: rotateAroundGlobe 8s linear infinite;
+            transform-origin: 0 0;
+            white-space: nowrap;
+          }
+          
+          .text-elverra {
+            animation: rotateAroundGlobe 8s linear infinite, textFadeInOut 8s linear infinite;
+          }
+          
+          .text-zenika {
+            animation: rotateAroundGlobe 8s linear infinite, textFadeInOut 8s linear infinite;
+            animation-delay: 4s;
+          }
         `}
       </style>
       <div className="relative w-full h-[100vh]">
@@ -25,6 +57,7 @@ const Globe: React.FC = () => {
             filter: "blur(5px)",
           }}
         ></div>
+
         {/* Conteneur pour le globe et les étoiles, sans flou */}
         <div className="flex items-center justify-center relative h-full">
           <div
@@ -37,6 +70,10 @@ const Globe: React.FC = () => {
               animation: "earthRotate 30s linear infinite",
             }}
           ></div>
+
+          <div className="rotating-text text-elverra">Elverra Global</div>
+          <div className="rotating-text text-zenika">Zenika</div>
+
           {/* Stars */}
           <div
             className="absolute left-[-20px] w-1 h-1 bg-white rounded-full"
