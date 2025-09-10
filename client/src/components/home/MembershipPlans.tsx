@@ -32,13 +32,7 @@ const MembershipPlans = ({ cmsContent }: MembershipPlansProps) => {
   const navigate = useNavigate();
 
   const handleSelectPlan = (planName: string) => {
-    if (user) {
-      // User is logged in, go directly to payment with plan selected
-      navigate(`/membership-payment?plan=${planName.toLowerCase()}`);
-    } else {
-      // User not logged in, redirect to register with plan info
-      navigate(`/register?plan=${planName.toLowerCase()}`);
-    }
+    navigate(`/selectCountry`);
   };
 
   const plans = [
@@ -49,7 +43,7 @@ const MembershipPlans = ({ cmsContent }: MembershipPlansProps) => {
       height: "195px",
       width: "325px",
       monthly: "1,000",
-      discount: "5%",
+      discount: "10%",
       color: "bg-gray-100",
       textColor: "text-gray-900",
       buttonVariant: "outline",
@@ -70,7 +64,7 @@ const MembershipPlans = ({ cmsContent }: MembershipPlansProps) => {
       monthly: "2,000",
       height: "175px",
       width: "300px",
-      discount: "10%",
+      discount: "20%",
       color: "gold-gradient",
       textColor: "text-gray-900",
       buttonVariant: "secondary",
@@ -93,7 +87,7 @@ const MembershipPlans = ({ cmsContent }: MembershipPlansProps) => {
       height: "187px",
       width: "320px",
       monthly: "5,000",
-      discount: "20%",
+      discount: "40%",
       color: "card-gradient",
       textColor: "text-white",
       buttonVariant: "default",
@@ -111,13 +105,13 @@ const MembershipPlans = ({ cmsContent }: MembershipPlansProps) => {
       ],
     },
     {
-      name: "Essential",
+      name: "Kiddies",
       image: "/lovable-uploads/Zenika.png",
-      price: "10,000",
-      height: "195px",
-      width: "325px",
-      monthly: "1,000",
-      discount: "5%",
+      price: "5,000",
+      height: "210px",
+      width: "320px",
+      monthly: "500",
+      discount: "15%",
       color: "bg-gray-100",
       textColor: "text-gray-900",
       buttonVariant: "outline",
@@ -182,7 +176,7 @@ const MembershipPlans = ({ cmsContent }: MembershipPlansProps) => {
                     plan.name === "Elite" ? "text-gray-100" : "text-gray-700"
                   }
                 >
-                  {plan.discount} discount on all Elverra services
+                  up to {plan.discount} discount on all Elverra services
                 </CardDescription>
               </CardHeader>
               <CardContent className="pt-6">
