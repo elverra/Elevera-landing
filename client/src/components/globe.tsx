@@ -71,8 +71,8 @@ const Globe: React.FC = () => {
             }}
           ></div>
 
-          <div className="rotating-text text-elverra">Elverra Global</div>
-          <div className="rotating-text text-zenika">Zenika Carte</div>
+          <div className="rotating-text text-elverra">ELVERRA GLOBAL</div>
+          <div className="rotating-text text-zenika">ZENIKA CARD</div>
 
           {/* Stars */}
           <div

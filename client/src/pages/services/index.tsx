@@ -11,6 +11,7 @@ import {
 import {
   AlertTriangle,
   Book,
+  Briefcase,
   CreditCard,
   PiggyBank,
   Shield,
@@ -73,8 +74,16 @@ const Services = () => {
       title: "E-Book Library",
       description: "Access range of e-books across various genres",
       icon: Book,
-      path: "/services/e-book-library",
+      path: "/ebooks",
       color: "bg-blue-500",
+    },
+    {
+      title: "Job Center",
+      description:
+        "Connect with top employers and advance your professional journey.",
+      icon: Briefcase,
+      path: "/job-center",
+      color: "bg-yellow-500",
     },
   ];
 
