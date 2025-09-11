@@ -366,9 +366,7 @@ const Discounts = () => {
                   size="lg"
                   variant="outline"
                   className="bg-white text-purple-600 hover:bg-gray-100"
-                  onClick={() =>
-                    user ? navigate("/dashboard") : navigate("/register")
-                  }
+                  onClick={() => navigate("/selectCountry")}
                   data-testid="button-become-member"
                 >
                   Become a Client
