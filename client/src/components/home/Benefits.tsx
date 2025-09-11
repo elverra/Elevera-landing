@@ -1,4 +1,4 @@
-import { Percent, CreditCard, Users, Gift, Award, Clock } from "lucide-react";
+import { Award, Clock, CreditCard, Gift, Percent, Users } from "lucide-react";
 
 interface CMSPage {
   id: string;
@@ -22,7 +22,7 @@ const Benefits = ({ cmsContent }: BenefitsProps) => {
       icon: <Percent className="h-10 w-10 text-purple-600" />,
       title: "Exclusive Discounts",
       description:
-        "Enjoy 5-20% discounts at thousands of partner businesses across our client network.",
+        "Enjoy 5-40% discounts at thousands of partner businesses across our client network.",
     },
     {
       icon: <CreditCard className="h-10 w-10 text-purple-600" />,
