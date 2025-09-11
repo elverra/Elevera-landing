@@ -308,7 +308,7 @@ const Header = () => {
               </Link>
               <Link
                 to="/shop"
-                className="text-gray-600 hover:text-purple-600 transition-colors font-medium px-2"
+                className="text-gray-600 hover:text-purple-600 transition-colors font-medium px-2 pl-6"
                 style={{ fontSize: "15px" }}
                 onClick={toggleMenu}
               >
@@ -323,7 +323,7 @@ const Header = () => {
               </Link>
               <Link
                 to="/job-center"
-                className="text-gray-600 hover:text-purple-600 transition-colors font-medium px-2"
+                className="text-gray-600 hover:text-purple-600 transition-colors font-medium px-2 pl-6"
                 style={{ fontSize: "15px" }}
                 onClick={toggleMenu}
               >
@@ -332,7 +332,7 @@ const Header = () => {
 
               <Link
                 to="/affiliate-program"
-                className="text-gray-600 hover:text-purple-600 transition-colors font-medium px-2"
+                className="text-gray-600 hover:text-purple-600 transition-colors font-medium px-2 pl-6"
                 style={{ fontSize: "15px" }}
                 onClick={toggleMenu}
               >
@@ -340,7 +340,7 @@ const Header = () => {
               </Link>
               <Link
                 to="/discounts"
-                className="text-gray-600 hover:text-purple-600 transition-colors font-medium px-2"
+                className="text-gray-600 hover:text-purple-600 transition-colors font-medium px-2 pl-6"
                 style={{ fontSize: "15px" }}
                 onClick={toggleMenu}
               >
@@ -348,7 +348,7 @@ const Header = () => {
               </Link>
               <Link
                 to="/competitions"
-                className="text-gray-600 hover:text-purple-600 transition-colors font-medium px-2"
+                className="text-gray-600 hover:text-purple-600 transition-colors font-medium px-2 pl-6"
                 style={{ fontSize: "15px" }}
                 onClick={toggleMenu}
               >
