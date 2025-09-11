@@ -10,52 +10,13 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { ArrowRight, Calendar, User } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const News = () => {
   const navigate = useNavigate();
   const [newsArticles, setNewsArticles] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    fetchNews();
-  }, []);
-
-  const fetchNews = async () => {
-    try {
-      const mockResult = { data: null, error: null }; // TODO: Replace with API call
-      const { data, error } = mockResult;
-
-      if (error) throw error;
-
-      const cmsNews =
-        (data as any[])?.map((page: any) => ({
-          id: page.id,
-          title: page.title,
-          excerpt:
-            page.meta_description || page.content.substring(0, 200) + "...",
-          date: page.created_at.split("T")[0],
-          author: "Admin Team",
-          category: "News",
-          image:
-            page.featured_image_url ||
-            "https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-        })) || [];
-
-      // If no CMS news, show static news
-      if (cmsNews.length === 0) {
-        setNewsArticles(getStaticNews());
-      } else {
-        setNewsArticles(cmsNews);
-      }
-    } catch (error) {
-      console.error("Error fetching news:", error);
-      setNewsArticles(getStaticNews());
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const getStaticNews = () => [
     {
