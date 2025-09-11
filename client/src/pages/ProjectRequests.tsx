@@ -1,11 +1,10 @@
-import { useState, useEffect } from 'react';
-import Layout from '@/components/layout/Layout';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Progress } from '@/components/ui/progress';
-import { useToast } from '@/hooks/use-toast';
-import ProjectCard from '@/components/projects/ProjectCard';
-import { PlusCircle } from 'lucide-react';
+import Layout from "@/components/layout/Layout";
+import ProjectCard from "@/components/projects/ProjectCard";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { useToast } from "@/hooks/use-toast";
+import { PlusCircle } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const ProjectRequests = () => {
   const [projects, setProjects] = useState<any[]>([]);
@@ -19,15 +18,15 @@ const ProjectRequests = () => {
   const fetchProjects = async () => {
     try {
       // Fetch real project data from API
-      const response = await fetch('/api/projects');
+      const response = await fetch("/api/projects");
       if (!response.ok) {
-        throw new Error('Failed to fetch projects');
+        throw new Error("Failed to fetch projects");
       }
-      
+
       const data = await response.json();
       setProjects(data || []);
     } catch (error) {
-      console.error('Error fetching projects:', error);
+      console.error("Error fetching projects:", error);
       toast({
         title: "Error",
         description: "Failed to load projects",
@@ -36,41 +35,47 @@ const ProjectRequests = () => {
       // Set mock projects data on error for demo purposes
       const mockProjects = [
         {
-          id: '1',
-          title: 'Community Water Well Project',
-          description: 'Building a clean water well for the community of 500 families in rural areas',
-          category: 'Infrastructure',
+          id: "1",
+          title: "Community Water Well Project",
+          description:
+            "Building a clean water well for the community of 500 families in rural areas",
+          category: "Infrastructure",
           goal: 5000000,
           raised: 3200000,
           backers: 45,
-          timeLeft: '15 days',
+          timeLeft: "15 days",
           featured: true,
-          image: 'https://images.unsplash.com/photo-1581351123004-757df051db8e?w=400'
+          image:
+            "https://images.unsplash.com/photo-1581351123004-757df051db8e?w=400",
         },
         {
-          id: '2', 
-          title: 'Solar Panel School Initiative',
-          description: 'Installing solar panels to provide reliable electricity to local schools',
-          category: 'Education',
+          id: "2",
+          title: "Solar Panel School Initiative",
+          description:
+            "Installing solar panels to provide reliable electricity to local schools",
+          category: "Education",
           goal: 3000000,
           raised: 1800000,
           backers: 28,
-          timeLeft: '8 days',
+          timeLeft: "8 days",
           featured: false,
-          image: 'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=400'
+          image:
+            "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=400",
         },
         {
-          id: '3',
-          title: 'Mobile Health Clinic',
-          description: 'Equipping a mobile clinic to serve remote communities with basic healthcare',
-          category: 'Healthcare',
+          id: "3",
+          title: "Mobile Health Clinic",
+          description:
+            "Equipping a mobile clinic to serve remote communities with basic healthcare",
+          category: "Healthcare",
           goal: 7500000,
           raised: 4200000,
           backers: 67,
-          timeLeft: '22 days',
+          timeLeft: "22 days",
           featured: true,
-          image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400'
-        }
+          image:
+            "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400",
+        },
       ];
       setProjects(mockProjects);
     } finally {
@@ -80,8 +85,8 @@ const ProjectRequests = () => {
 
   const handleContribute = async (projectId: string) => {
     toast({
-      title: "Contribution",
-      description: "Contribution feature coming soon!",
+      title: "Purchase",
+      description: "Purchase feature coming soon!",
     });
   };
 
@@ -92,14 +97,17 @@ const ProjectRequests = () => {
           <div className="max-w-7xl mx-auto">
             <div className="flex justify-between items-center mb-8">
               <div>
-                <h1 className="text-3xl font-bold text-foreground">Project Funding</h1>
+                <h1 className="text-3xl font-bold text-foreground">
+                  Project Funding
+                </h1>
                 <p className="text-muted-foreground mt-2">
-                  Support community projects and make a difference across our client network
+                  Support community projects and make a difference across our
+                  client network
                 </p>
               </div>
-              <Button 
+              <Button
                 className="flex items-center space-x-2"
-                onClick={() => window.open('#/project-submission', '_blank')}
+                onClick={() => window.open("#/project-submission", "_blank")}
                 data-testid="button-submit-project"
               >
                 <PlusCircle className="h-4 w-4" />
@@ -120,7 +128,13 @@ const ProjectRequests = () => {
               <Card>
                 <CardContent className="p-6 text-center">
                   <div className="text-3xl font-bold text-green-600 mb-2">
-                    CFA {projects.reduce((sum: number, p: any) => sum + (p.current_amount || 0), 0).toLocaleString()}
+                    CFA{" "}
+                    {projects
+                      .reduce(
+                        (sum: number, p: any) => sum + (p.current_amount || 0),
+                        0
+                      )
+                      .toLocaleString()}
                   </div>
                   <p className="text-muted-foreground">Total Raised</p>
                 </CardContent>
@@ -128,7 +142,7 @@ const ProjectRequests = () => {
               <Card>
                 <CardContent className="p-6 text-center">
                   <div className="text-3xl font-bold text-blue-600 mb-2">
-                    {projects.filter((p: any) => p.status === 'active').length}
+                    {projects.filter((p: any) => p.status === "active").length}
                   </div>
                   <p className="text-muted-foreground">Currently Funding</p>
                 </CardContent>
@@ -139,14 +153,16 @@ const ProjectRequests = () => {
             {loading ? (
               <div className="text-center py-12">
                 <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto"></div>
-                <p className="mt-4 text-muted-foreground">Loading projects...</p>
+                <p className="mt-4 text-muted-foreground">
+                  Loading projects...
+                </p>
               </div>
             ) : projects.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {projects.map((project: any) => (
-                  <ProjectCard 
-                    key={project.id} 
-                    project={project} 
+                  <ProjectCard
+                    key={project.id}
+                    project={project}
                     onContribute={handleContribute}
                   />
                 ))}
@@ -158,8 +174,8 @@ const ProjectRequests = () => {
                 <p className="text-muted-foreground mb-6">
                   Be the first to submit a project for community funding.
                 </p>
-                <Button 
-                  onClick={() => window.open('#/project-submission', '_blank')}
+                <Button
+                  onClick={() => window.open("#/project-submission", "_blank")}
                   data-testid="button-submit-your-project"
                 >
                   Submit Your Project

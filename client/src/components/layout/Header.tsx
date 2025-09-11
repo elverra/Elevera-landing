@@ -322,14 +322,6 @@ const Header = () => {
                 E-Book Library
               </Link>
               <Link
-                to="/jobs"
-                className="text-gray-600 hover:text-purple-600 transition-colors font-medium px-2"
-                style={{ fontSize: "15px" }}
-                onClick={toggleMenu}
-              >
-                Browse Jobs
-              </Link>
-              <Link
                 to="/job-center"
                 className="text-gray-600 hover:text-purple-600 transition-colors font-medium px-2"
                 style={{ fontSize: "15px" }}
@@ -337,45 +329,14 @@ const Header = () => {
               >
                 Job Center
               </Link>
+
               <Link
-                to="/post-job"
+                to="/affiliate-program"
                 className="text-gray-600 hover:text-purple-600 transition-colors font-medium px-2"
                 style={{ fontSize: "15px" }}
                 onClick={toggleMenu}
               >
-                Post a Job
-              </Link>
-              <Link
-                to="/affiliates/members"
-                className="text-gray-600 hover:text-purple-600 transition-colors font-medium px-2"
-                style={{ fontSize: "15px" }}
-                onClick={toggleMenu}
-              >
-                Member Affiliates
-              </Link>
-              <Link
-                to="/affiliates/merchants"
-                className="text-gray-600 hover:text-purple-600 transition-colors font-medium px-2"
-                style={{ fontSize: "15px" }}
-                onClick={toggleMenu}
-              >
-                Merchant Partners
-              </Link>
-              <Link
-                to="/affiliates/distributors"
-                className="text-gray-600 hover:text-purple-600 transition-colors font-medium px-2"
-                style={{ fontSize: "15px" }}
-                onClick={toggleMenu}
-              >
-                Distributors
-              </Link>
-              <Link
-                to="/affiliate-dashboard"
-                className="text-gray-600 hover:text-purple-600 transition-colors font-medium px-2"
-                style={{ fontSize: "15px" }}
-                onClick={toggleMenu}
-              >
-                Affiliate Dashboard
+                Affiliate Program
               </Link>
               <Link
                 to="/discounts"
@@ -391,7 +352,7 @@ const Header = () => {
                 style={{ fontSize: "15px" }}
                 onClick={toggleMenu}
               >
-                Competitions
+                Events
               </Link>
             </nav>
           </div>

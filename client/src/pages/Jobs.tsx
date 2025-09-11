@@ -211,7 +211,7 @@ const mockJobs: Job[] = [
       "Bike-to-work scheme",
       "Flexible working arrangements",
       "Annual data science conference",
-      "Pension contribution matching",
+      "Pension purchase matching",
     ],
     salary: "€55,000 - €70,000",
     experience: "2+ years",
