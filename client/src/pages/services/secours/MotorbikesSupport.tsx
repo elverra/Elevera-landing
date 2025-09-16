@@ -1,29 +1,21 @@
 import Layout from "@/components/layout/Layout";
 import PremiumBanner from "@/components/layout/PremiumBanner";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Bike, Wrench, Shield, CheckCircle, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Bike, CheckCircle, Shield, Wrench } from "lucide-react";
 
 const MotorbikesSupport = () => {
   const services = ["Emergency repair coverage", "24/7 helpline"];
 
   const emergencyTypes = [
     {
-      title: "Engine Breakdown",
+      title: "Repair",
       description: "Complete engine failure or major mechanical issues",
     },
     {
-      title: "Accident Damage",
+      title: "Buy New Motorbike",
       description: "Repair costs from accidents and collisions",
-    },
-    {
-      title: "Electrical Problems",
-      description: "Battery, wiring, and electrical system failures",
-    },
-    {
-      title: "Tire & Brake Issues",
-      description: "Emergency tire replacement and brake repairs",
     },
   ];
 

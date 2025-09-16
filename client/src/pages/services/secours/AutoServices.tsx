@@ -1,24 +1,36 @@
-
-import Layout from '@/components/layout/Layout';
-import PremiumBanner from '@/components/layout/PremiumBanner';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Car, Wrench, Shield, CheckCircle, AlertTriangle } from 'lucide-react';
+import Layout from "@/components/layout/Layout";
+import PremiumBanner from "@/components/layout/PremiumBanner";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { AlertTriangle, Car, CheckCircle, Shield, Wrench } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const AutoServices = () => {
   const services = [
     "Emergency roadside assistance",
     "Towing services",
     "Battery replacement",
-    "Tire repair and replacement"    
+    "Tire repair and replacement",
   ];
 
   const emergencyTypes = [
-    { title: "Engine Breakdown", description: "Complete engine failure or overheating issues" },
-    { title: "Flat Tire", description: "Emergency tire replacement and repair services" },
-    { title: "Dead Battery", description: "Jump start and battery replacement services" },
-    { title: "Lockout Service", description: "Professional lockout assistance for vehicles" }
+    {
+      title: "Engine Breakdown",
+      description: "Complete engine failure or overheating issues",
+    },
+    {
+      title: "Flat Tire",
+      description: "Emergency tire replacement and repair services",
+    },
+    {
+      title: "Dead Battery",
+      description: "Jump start and battery replacement services",
+    },
+    {
+      title: "Lockout Service",
+      description: "Professional lockout assistance for vehicles",
+    },
   ];
 
   return (
@@ -40,12 +52,17 @@ const AutoServices = () => {
               <div className="w-20 h-20 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Car className="h-10 w-10 text-white" />
               </div>
-              <h2 className="text-4xl font-bold mb-4">Ô Secour: Your Partner in Times of Need!</h2>
+              <h2 className="text-4xl font-bold mb-4">
+                Ô Secour: Your Partner in Times of Need!
+              </h2>
               <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-                Never get stranded on the road again. Our comprehensive auto emergency services 
-                ensure you're always covered when vehicle problems arise.
+                Never get stranded on the road again. Our comprehensive auto
+                emergency services ensure you're always covered when vehicle
+                problems arise.
               </p>
-              <Badge className="text-lg px-6 py-2 bg-red-500">Vehicle Emergency</Badge>
+              <Badge className="text-lg px-6 py-2 bg-red-500">
+                Vehicle Emergency
+              </Badge>
             </div>
 
             {/* Services Grid */}
@@ -63,7 +80,9 @@ const AutoServices = () => {
             {/* Emergency Types */}
             <Card className="mb-16">
               <CardHeader>
-                <CardTitle className="text-2xl text-center">What We Cover</CardTitle>
+                <CardTitle className="text-2xl text-center">
+                  What We Cover
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -73,7 +92,9 @@ const AutoServices = () => {
                         <CheckCircle className="h-6 w-6 text-red-500 mt-1" />
                         <div>
                           <h3 className="font-semibold mb-2">{type.title}</h3>
-                          <p className="text-gray-600 text-sm">{type.description}</p>
+                          <p className="text-gray-600 text-sm">
+                            {type.description}
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -85,16 +106,29 @@ const AutoServices = () => {
             {/* CTA Section */}
             <Card className="bg-gradient-to-r from-red-600 to-orange-600 text-white">
               <CardContent className="p-12 text-center">
-                <h2 className="text-3xl font-bold mb-4">Never Get Stranded Again!</h2>
+                <h2 className="text-3xl font-bold mb-4">
+                  Never Get Stranded Again!
+                </h2>
                 <p className="text-xl mb-8 opacity-90">
-                  Join our auto emergency support and drive with confidence knowing help is always available.
+                  Join our auto emergency support and drive with confidence
+                  knowing help is always available.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button size="lg" variant="outline" className="bg-white text-red-600 hover:bg-gray-100">
-                    <Shield className="h-5 w-5 mr-2" />
-                    Get Coverage
-                  </Button>
-                  <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-red-600">
+                  <Link to="/selectCountry">
+                    <Button
+                      size="lg"
+                      variant="outline"
+                      className="bg-white text-purple-600 hover:bg-gray-100"
+                    >
+                      <Shield className="h-5 w-5 mr-2" />
+                      Buy Token
+                    </Button>
+                  </Link>
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="bg-transparent border-white text-white hover:bg-white hover:text-red-600"
+                  >
                     <AlertTriangle className="h-5 w-5 mr-2" />
                     Emergency Help
                   </Button>
