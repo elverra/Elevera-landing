@@ -110,7 +110,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/discounts"
+                  to="/selectCountry"
                   className="text-gray-300 hover:text-club66-gold text-sm"
                 >
                   Discounts
