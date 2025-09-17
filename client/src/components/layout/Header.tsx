@@ -159,7 +159,7 @@ const Header = () => {
                   <Link to="/services/payday-advance">Payday Advance</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link to="/services/online-store">Online Store</Link>
+                  <Link to="/selectCountry">Online Store</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
                   <Link to="/selectCountry" className="flex items-center">
@@ -167,7 +167,7 @@ const Header = () => {
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link to="/job-center" className="flex items-center">
+                  <Link to="/selectCountry" className="flex items-center">
                     Job Center
                   </Link>
                 </DropdownMenuItem>
