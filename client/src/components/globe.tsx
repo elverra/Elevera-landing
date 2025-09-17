@@ -51,7 +51,7 @@ const Globe: React.FC = () => {
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: "url('/lovable-uploads/Poster.png')",
+            backgroundImage: "url('/lovable-uploads/2.jpeg')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             filter: "blur(5px)",
