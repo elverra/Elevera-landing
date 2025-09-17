@@ -179,26 +179,7 @@ const Competitions = () => {
                       </div>
                     </CardHeader>
                     <CardContent>
-                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
-                        <div className="flex items-center">
-                          <Calendar className="h-4 w-4 mr-2 text-gray-500" />
-                          <span className="text-sm">
-                            {new Date(event.start_date).toLocaleDateString()}
-                          </span>
-                        </div>
-                        <div className="flex items-center">
-                          <MapPin className="h-4 w-4 mr-2 text-gray-500" />
-                          <span className="text-sm">{event.location}</span>
-                        </div>
-                        <div className="flex items-center">
-                          <Trophy className="h-4 w-4 mr-2 text-gray-500" />
-                          <span className="text-sm">{event.prize}</span>
-                        </div>
-                        <div className="flex items-center">
-                          <Users className="h-4 w-4 mr-2 text-gray-500" />
-                          <span className="text-sm">{event.current_entries} entries</span>
-                        </div>
-                      </div>
+                    
                       
                       <div className="flex gap-2">
                         {event.status === 'active' && (
@@ -207,7 +188,7 @@ const Competitions = () => {
                             <Button 
                               className="bg-purple-600 hover:bg-purple-700"
                             >
-                              <Link to="/selectCountry">Participate</Link>
+                              <Link to="/selectCountry">View list of our challenges</Link>
                             </Button>
                             
                           </>
