@@ -166,7 +166,10 @@ const PaydayAdvance = () => {
                     <Button
                       size="lg"
                       className="bg-white text-orange-600 hover:bg-gray-100"
-                      onClick={() => (window.location.href = "/selectCountry")}
+                      onClick={() => {
+                        const hotline = "/selectCountry";
+                        window.location.href = hotline;
+                      }}
                     >
                       Apply Now
                     </Button>
