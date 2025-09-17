@@ -29,14 +29,7 @@ const Services = () => {
       path: "/cards",
       color: "bg-gold-500",
     },
-    {
-      title: "ZENIKA Kiddies Card",
-      description:
-        "Premium value card with exclusive benefits and discounts for kids",
-      icon: CreditCard,
-      path: "/cards",
-      color: "bg-gold-500",
-    },
+    
   ];
 
   const services = [

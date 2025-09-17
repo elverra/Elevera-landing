@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Bike, CheckCircle, Shield, Wrench } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const MotorbikesSupport = () => {
   const services = ["Emergency repair coverage", "24/7 helpline"];
@@ -100,21 +101,14 @@ const MotorbikesSupport = () => {
                   emergency support today.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button
+                  <Button 
+                  
                     size="lg"
                     variant="outline"
                     className="bg-white text-orange-600 hover:bg-gray-100"
                   >
                     <Shield className="h-5 w-5 mr-2" />
-                    Get Protected
-                  </Button>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="bg-transparent border-white text-white hover:bg-white hover:text-orange-600"
-                  >
-                    <Bike className="h-5 w-5 mr-2" />
-                    View Plans
+                     <Link to="/selectCountry">Buy tokens </Link>
                   </Button>
                 </div>
               </CardContent>

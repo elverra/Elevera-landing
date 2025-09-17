@@ -8,35 +8,18 @@ import { Link } from "react-router-dom";
 
 const AutoServices = () => {
   const services = [
-    "Emergency roadside assistance",
-    "Towing services",
-    "Battery replacement",
-    "Tire repair and replacement",
+    "Repair Vehicule",
+    "Buy new vehicule",
   ];
 
   const emergencyTypes = [
-    {
-      title: "Engine Breakdown",
-      description: "Complete engine failure or overheating issues",
-    },
-    {
-      title: "Flat Tire",
-      description: "Emergency tire replacement and repair services",
-    },
-    {
-      title: "Dead Battery",
-      description: "Jump start and battery replacement services",
-    },
-    {
-      title: "Lockout Service",
-      description: "Professional lockout assistance for vehicles",
-    },
+
   ];
 
   return (
     <Layout>
       <PremiumBanner
-        title="Auto Services Emergency Support"
+        title="Ô Secours AUTO"
         description="Get the Help You Need, When You Need It! - Comprehensive automotive emergency assistance across Africa"
         backgroundImage="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
         variant="compact"
@@ -53,7 +36,7 @@ const AutoServices = () => {
                 <Car className="h-10 w-10 text-white" />
               </div>
               <h2 className="text-4xl font-bold mb-4">
-                Ô Secour: Your Partner in Times of Need!
+                Ô Secours: Your Partner in Times of Need!
               </h2>
               <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
                 Never get stranded on the road again. Our comprehensive auto
@@ -77,32 +60,7 @@ const AutoServices = () => {
               ))}
             </div>
 
-            {/* Emergency Types */}
-            <Card className="mb-16">
-              <CardHeader>
-                <CardTitle className="text-2xl text-center">
-                  What We Cover
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {emergencyTypes.map((type, index) => (
-                    <div key={index} className="p-6 bg-red-50 rounded-lg">
-                      <div className="flex items-start space-x-4">
-                        <CheckCircle className="h-6 w-6 text-red-500 mt-1" />
-                        <div>
-                          <h3 className="font-semibold mb-2">{type.title}</h3>
-                          <p className="text-gray-600 text-sm">
-                            {type.description}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-
+            
             {/* CTA Section */}
             <Card className="bg-gradient-to-r from-red-600 to-orange-600 text-white">
               <CardContent className="p-12 text-center">
@@ -124,14 +82,6 @@ const AutoServices = () => {
                       Buy Token
                     </Button>
                   </Link>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="bg-transparent border-white text-white hover:bg-white hover:text-red-600"
-                  >
-                    <AlertTriangle className="h-5 w-5 mr-2" />
-                    Emergency Help
-                  </Button>
                 </div>
               </CardContent>
             </Card>

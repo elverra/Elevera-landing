@@ -71,11 +71,11 @@ const Team = () => {
     <Layout>
       <PremiumBanner
         title="Our Leadership Team"
-        description="Meet the talented individuals with deep business experience and community networks leading Elverra Global"
-        backgroundImage="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+        description="Meet the executives and department heads who guide our mission and drive organizational success."
+        backgroundImage="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
       />
 
-      <div className="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
+      <div className="py-16 bg-gradient-to-br from-purple-50 to-purple-100">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             {/* Introduction */}

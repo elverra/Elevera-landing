@@ -37,7 +37,7 @@ const OSecours = () => {
   const secoursServices = [
     {
       id: "school",
-      title: "School Fees",
+      title: "Ô Secours School Fees",
       subtitle: "Education Support",
       caption: "Your Safety Net, Always Ready!",
       description:
@@ -49,7 +49,7 @@ const OSecours = () => {
     },
     {
       id: "motorbike",
-      title: "Motorbikes",
+      title: "Ô Secours Motorbikes",
       subtitle: "Transportation Relief",
       caption: "Quick Relief, Zero Stress!",
       description:
@@ -61,7 +61,7 @@ const OSecours = () => {
     },
     {
       id: "phone",
-      title: "Mobile Phones",
+      title: "Ô Secours Mobile Phones",
       subtitle: "Communication Support",
       caption: "Emergency Relief at Your Fingertips!",
       description:
@@ -73,7 +73,7 @@ const OSecours = () => {
     },
     {
       id: "auto",
-      title: "Auto Services",
+      title: "Ô Secours AUTO",
       subtitle: "Vehicle Emergency",
       caption: "Get the Help You Need, When You Need It!",
       description:
@@ -85,7 +85,7 @@ const OSecours = () => {
     },
     {
       id: "first-aid",
-      title: "First Aid",
+      title: "Ô Secours First Aid",
       subtitle: "Medical Emergency",
       caption: "Life's Unpredictable, Ô Secour's Not!",
       description:
@@ -97,7 +97,7 @@ const OSecours = () => {
     },
     {
       id: "cata-catani",
-      title: "Cata Catani",
+      title: "Ô Secours Cata Catani / Telimani",
       subtitle: "Motorcycle Emergency",
       caption: "Get Help Fast, Stay Safe Always!",
       description:

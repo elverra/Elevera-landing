@@ -170,14 +170,6 @@ const PaydayAdvance = () => {
                     >
                       Apply Now
                     </Button>
-                    <Button
-                      onClick={() => (window.location.href = "/selectCountry")}
-                      size="lg"
-                      variant="outline"
-                      className="border-white text-black hover:bg-white/10"
-                    >
-                      Learn More
-                    </Button>
                   </div>
                 </CardContent>
               </Card>

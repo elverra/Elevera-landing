@@ -5,22 +5,17 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Phone, Smartphone, Shield, CheckCircle, Zap } from 'lucide-react';
+import { Link } from "react-router-dom";
 
 const MobilePhones = () => {
   const services = [
-    "Screen repair & replacement",
-    "Water damage recovery",
-    "Battery replacement",
-    "Software troubleshooting",
-    "Emergency phone rental"
+    "Repair phone",
+    "Buy new phone",
   ];
 
   const urgentSituations = [
-    "Cracked or shattered screen",
-    "Water damage incidents",
-    "Battery completely dead",
-    "Phone won't turn on",
-    "Lost or stolen device"
+      "Repair phone",
+      "Buy new phone",
   ];
 
   return (
@@ -125,11 +120,7 @@ const MobilePhones = () => {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Button size="lg" variant="outline" className="bg-white text-green-600 hover:bg-gray-100">
                     <Phone className="h-5 w-5 mr-2" />
-                    Subscribe Now
-                  </Button>
-                  <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-green-600">
-                    <Shield className="h-5 w-5 mr-2" />
-                    Emergency Help
+                     <Link to="/selectCountry">Buy Tokens </Link> 
                   </Button>
                 </div>
               </CardContent>

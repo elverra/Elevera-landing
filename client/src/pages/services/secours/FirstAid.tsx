@@ -7,11 +7,7 @@ import { CheckCircle, Heart, Phone, Plus, Shield } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const FirstAid = () => {
-  const services = [
-    "24/7 emergency response",
-    "Trained medical professionals",
-    "Medical consultation",
-  ];
+ 
 
   const emergencyTypes = [
     {
@@ -47,21 +43,6 @@ const FirstAid = () => {
                 ready to provide immediate assistance. Your health and safety
                 are our top priority.
               </p>
-              <Badge className="text-lg px-6 py-2 bg-purple-500">
-                Medical Emergency
-              </Badge>
-            </div>
-
-            {/* Services Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-              {services.map((service, index) => (
-                <Card key={index} className="hover:shadow-lg transition-shadow">
-                  <CardContent className="p-6 text-center">
-                    <Heart className="h-8 w-8 text-purple-500 mx-auto mb-4" />
-                    <p className="font-medium">{service}</p>
-                  </CardContent>
-                </Card>
-              ))}
             </div>
 
             {/* Emergency Types */}
@@ -111,14 +92,7 @@ const FirstAid = () => {
                       Buy Token
                     </Button>
                   </Link>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="bg-transparent border-white text-white hover:bg-white hover:text-purple-600"
-                  >
-                    <Phone className="h-5 w-5 mr-2" />
-                    Emergency Hotline
-                  </Button>
+                  
                 </div>
               </CardContent>
             </Card>

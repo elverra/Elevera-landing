@@ -134,14 +134,14 @@ const OnlineStore = () => {
       navigate('/my-account?tab=products');
     } else {
       toast.info('Please login to post products');
-      navigate('/login');
+      navigate('/selectCountry');
     }
   };
 
   const handleReviewSubmit = async (productId: string) => {
     if (!user) {
       toast.info('Please login to leave a review');
-      navigate('/login');
+      navigate('/selectCountry');
       return;
     }
 

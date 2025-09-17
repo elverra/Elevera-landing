@@ -21,7 +21,7 @@ const Cards = () => {
     if (user) {
       return `/membership-payment?tier=${tierName.toLowerCase()}`;
     }
-    return '/register';
+    return '/selectCountry';
   };
 
   const getMainCTAText = () => {
@@ -88,6 +88,12 @@ const Cards = () => {
       color: 'bg-gold-500',
       price: '10,000 CFA',
       features: ['Maximum discounts', 'Concierge service', 'VIP events', 'Premium travel', 'Personal advisor']
+    },
+    {
+      name: 'Kids',
+      color: 'bg-gold-500',
+      price: '10,000 CFA',
+      features: ['Maximum discounts', 'Concierge service', 'VIP events', 'Premium travel', 'Personal advisor']
     }
   ];
 
@@ -97,7 +103,7 @@ const Cards = () => {
         title="ZENIKA Card"
         description="Your gateway to exclusive benefits, discounts, and premium lifestyle experiences across our client network"
         backgroundImage="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
-      />
+    />
 
       <div className="py-16 bg-gradient-to-br from-blue-50 to-purple-100">
         <div className="container mx-auto px-4">

@@ -99,35 +99,7 @@ const JobCenter = () => {
       <div className="py-16 bg-gradient-to-br from-purple-50 to-purple-100">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
-              {jobStats.map((stat, index) => {
-                const IconComponent = stat.icon;
-                const colorClasses = {
-                  blue: "from-blue-500 to-blue-600",
-                  green: "from-green-500 to-green-600",
-                  purple: "from-purple-500 to-purple-600",
-                  orange: "from-orange-500 to-orange-600",
-                };
-
-                return (
-                  <Card key={index} className="text-center">
-                    <CardContent className="p-6">
-                      <div
-                        className={`bg-gradient-to-br ${
-                          colorClasses[stat.color as keyof typeof colorClasses]
-                        } p-3 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center`}
-                      >
-                        <IconComponent className="h-8 w-8 text-white" />
-                      </div>
-                      <div className="text-3xl font-bold text-gray-900 mb-1">
-                        {stat.value}
-                      </div>
-                      <div className="text-gray-600">{stat.label}</div>
-                    </CardContent>
-                  </Card>
-                );
-              })}
-            </div>
+            
 
             <div className="mb-16">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -196,31 +168,7 @@ const JobCenter = () => {
               </div>
             </div>
 
-            <div className="mb-16">
-              <h2 className="text-3xl font-bold mb-8 text-center">
-                Top Hiring Companies
-              </h2>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                {topCompanies.map((company, index) => (
-                  <Card
-                    key={index}
-                    className="text-center hover:shadow-lg transition-shadow cursor-pointer"
-                  >
-                    <CardContent className="p-6">
-                      <img
-                        src={company.logo}
-                        alt={company.name}
-                        className="w-16 h-16 mx-auto mb-4 object-contain"
-                      />
-                      <h3 className="font-semibold mb-2">{company.name}</h3>
-                      <div className="text-sm text-gray-600">
-                        {company.jobs} open positions
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </div>
+           
 
             <div className="text-center">
               <Card className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white">
@@ -239,14 +187,6 @@ const JobCenter = () => {
                       variant="outline"
                       className="border-white text-purple-600 hover:bg-gray-100"
                       onClick={() => navigate("/selectCountry")}
-                    >
-                      Create Account
-                    </Button>
-                    <Button
-                      size="lg"
-                      variant="outline"
-                      className="border-white text-purple-600 hover:bg-gray-100"
-                      onClick={() => navigate("/jobs")}
                     >
                       Browse Jobs Now
                     </Button>
