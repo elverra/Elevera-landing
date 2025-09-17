@@ -149,7 +149,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/affiliates"
+                  to="/affiliate-program"
                   className="text-gray-300 hover:text-club66-gold text-sm"
                 >
                   Affiliates
