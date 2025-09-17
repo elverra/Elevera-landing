@@ -162,7 +162,7 @@ const Header = () => {
                   <Link to="/services/online-store">Online Store</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link to="/ebooks" className="flex items-center">
+                  <Link to="/selectCountry" className="flex items-center">
                     {t("nav.services.ebooks")}
                   </Link>
                 </DropdownMenuItem>

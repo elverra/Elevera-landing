@@ -5,27 +5,18 @@
   import { Button } from '@/components/ui/button';
   import { Badge } from '@/components/ui/badge';
   import { Truck, MapPin, Shield, CheckCircle, Clock } from 'lucide-react';
+  import { Link } from "react-router-dom";
 
   const CataCatani = () => {
     const services = [
-      "Emergency transport services",
-      "Logistics coordination",
-      "Inter-city travel assistance",
-      "Freight emergency support",
-      "Route planning assistance"
-    ];
-
-    const transportTypes = [
-      { title: "Emergency Transport", description: "Urgent transportation when regular services are unavailable" },
-      { title: "Logistics Support", description: "Emergency freight and cargo transportation" },
-      { title: "Travel Assistance", description: "Help with stranded travelers and emergency bookings" },
-      { title: "Route Planning", description: "Alternative route planning during emergencies" }
+      "Repair (Cata-Catani/Telimani)",
+      "Buy new (Cata-Catani/Telimani)",
     ];
 
     return (
       <Layout>
         <PremiumBanner
-          title="Cata-Catani Transportation Support"
+          title="Cata-Catani / Telimani Transportation Support"
           description="Ô Secour: Your Partner in Times of Need! - Comprehensive transportation and logistics emergency assistance"
           backgroundImage="https://images.unsplash.com/photo-1464207687429-7505649dae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
           variant="compact"
@@ -60,29 +51,6 @@
                   </Card>
                 ))}
               </div>
-
-              {/* Transport Types */}
-              <Card className="mb-16">
-                <CardHeader>
-                  <CardTitle className="text-2xl text-center">Transportation Services</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {transportTypes.map((type, index) => (
-                      <div key={index} className="p-6 bg-yellow-50 rounded-lg">
-                        <div className="flex items-start space-x-4">
-                          <CheckCircle className="h-6 w-6 text-yellow-500 mt-1" />
-                          <div>
-                            <h3 className="font-semibold mb-2">{type.title}</h3>
-                            <p className="text-gray-600 text-sm">{type.description}</p>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-
               {/* CTA Section */}
               <Card className="bg-gradient-to-r from-yellow-600 to-amber-600 text-white">
                 <CardContent className="p-12 text-center">
@@ -91,13 +59,11 @@
                     Subscribe to our Cata-Catani service and enjoy peace of mind with our comprehensive transportation support.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Button size="lg" variant="outline" className="bg-white text-yellow-600 hover:bg-gray-100">
+                     
+                     <Button size="lg" variant="outline" className="bg-white text-yellow-600 hover:bg-gray-100">
+                     
                       <Shield className="h-5 w-5 mr-2" />
-                      Get Coverage
-                    </Button>
-                    <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-yellow-600">
-                      <Clock className="h-5 w-5 mr-2" />
-                      24/7 Support
+                      <Link to="/selectCountry">Buy Tokens</Link>
                     </Button>
                   </div>
                 </CardContent>

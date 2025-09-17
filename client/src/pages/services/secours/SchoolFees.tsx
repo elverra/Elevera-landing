@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowRight, CheckCircle, Clock, School, Shield } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const SchoolFees = () => {
   const features = [
@@ -124,16 +125,9 @@ const SchoolFees = () => {
                     className="bg-white text-blue-600 hover:bg-gray-100"
                   >
                     <Shield className="h-5 w-5 mr-2" />
-                    Subscribe Now
+                    <Link to="/selectCountry"> Buy Tokens </Link>
                   </Button>
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="bg-transparent border-white text-white hover:bg-white hover:text-blue-600"
-                  >
-                    <Clock className="h-5 w-5 mr-2" />
-                    Learn More
-                  </Button>
+                  
                 </div>
               </CardContent>
             </Card>

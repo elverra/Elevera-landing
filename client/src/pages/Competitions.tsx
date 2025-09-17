@@ -11,6 +11,7 @@ import { toast } from 'sonner';
 import CompetitionParticipationForm from '@/components/competitions/CompetitionParticipationForm';
 import { useAuth } from '@/hooks/useAuth';
 import { useMembership } from '@/hooks/useMembership';
+import { Link } from "react-router-dom";
 
 interface Competition {
   id: string;
@@ -46,18 +47,7 @@ const Competitions = () => {
     queryFn: async () => {
       // Mock competitions data for now
       const mockCompetitions: Competition[] = [
-        {
-          id: '1',
-          title: 'Photography Contest 2025',
-          description: 'Capture the beauty of our client network through your lens',
-          start_date: '2025-02-01T00:00:00Z',
-          end_date: '2025-02-28T23:59:59Z',
-          location: 'Online',
-          prize: 'CFA 500,000 + Professional Camera',
-          status: 'upcoming',
-          current_entries: 45,
-          max_entries: 200
-        },
+       
         {
           id: '2', 
           title: 'Innovation Challenge',
@@ -70,18 +60,7 @@ const Competitions = () => {
           current_entries: 67,
           max_entries: 100
         },
-        {
-          id: '3',
-          title: 'Cultural Heritage Festival',
-          description: 'Showcase the rich cultural heritage of our markets',
-          start_date: '2025-03-01T00:00:00Z',
-          end_date: '2025-03-31T23:59:59Z',
-          location: 'Regional Centers',
-          prize: 'CFA 750,000 + Cultural Exchange Trip',
-          status: 'upcoming',
-          current_entries: 23,
-          max_entries: 150
-        }
+       
       ];
       return mockCompetitions;
     }
@@ -224,20 +203,13 @@ const Competitions = () => {
                       <div className="flex gap-2">
                         {event.status === 'active' && (
                           <>
+                            
                             <Button 
-                              onClick={() => handleParticipate(event.id)}
                               className="bg-purple-600 hover:bg-purple-700"
                             >
-                              Participate
+                              <Link to="/selectCountry">Participate</Link>
                             </Button>
-                            <Button 
-                              variant="outline"
-                              onClick={() => setSelectedCompetition(
-                                selectedCompetition === event.id ? null : event.id
-                              )}
-                            >
-                              {selectedCompetition === event.id ? 'Hide' : 'View'} Participants
-                            </Button>
+                            
                           </>
                         )}
                       </div>

@@ -21,7 +21,7 @@ const Cards = () => {
     if (user) {
       return `/membership-payment?tier=${tierName.toLowerCase()}`;
     }
-    return '/register';
+    return '/selectCountry';
   };
 
   const getMainCTAText = () => {
