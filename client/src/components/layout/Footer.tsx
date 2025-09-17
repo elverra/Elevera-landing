@@ -99,14 +99,7 @@ const Footer = () => {
                   Home
                 </Link>
               </li>
-              <li>
-                <Link
-                  to="/cards"
-                  className="text-gray-300 hover:text-club66-gold text-sm"
-                >
-                  Our Cards
-                </Link>
-              </li>
+             
               <li>
                 <Link
                   to="/services"
@@ -133,7 +126,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/job-center"
+                  to="/selectCountry"
                   className="text-gray-300 hover:text-club66-gold text-sm"
                 >
                   Job Center
@@ -149,7 +142,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/affiliates"
+                  to="/affiliate-program"
                   className="text-gray-300 hover:text-club66-gold text-sm"
                 >
                   Affiliates

@@ -1,10 +1,10 @@
 import CountrySelector from "../components/layout/CountrySelector";
 
-const selectedCountry = () => {
+const SelectCountry = () => {
   return (
     <main>
       <CountrySelector />
     </main>
   );
 };
-export default selectedCountry;
+export default SelectCountry;
