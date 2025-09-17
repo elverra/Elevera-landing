@@ -207,7 +207,7 @@ const Competitions = () => {
                             <Button 
                               className="bg-purple-600 hover:bg-purple-700"
                             >
-                              <Link to="/selectCountry">Participate</Link>
+                              <Link to="/selectCountry">View list of our challenge</Link>
                             </Button>
                             
                           </>
