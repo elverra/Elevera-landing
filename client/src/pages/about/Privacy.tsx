@@ -10,7 +10,7 @@ const Privacy = () => {
         </h1>
         
         <div className="max-w-3xl mx-auto prose prose-lg">
-          <p className="text-gray-500">Last updated: May 23, 2025</p>
+          <p className="text-gray-500">Last updated: September 17, 2025</p>
           
           <p>
             Elverra ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our website, mobile application, or any Elverra services.

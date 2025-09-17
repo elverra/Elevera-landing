@@ -11,7 +11,7 @@ const Terms = () => {
         </h1>
         
         <div className="max-w-3xl mx-auto prose prose-lg">
-          <p className="text-gray-500">Last updated: May 23, 2025</p>
+          <p className="text-gray-500">Last updated: September 17, 2025</p>
           
           <h2>1. Acceptance of Terms</h2>
           <p>
