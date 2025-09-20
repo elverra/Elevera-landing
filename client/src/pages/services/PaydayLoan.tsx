@@ -19,7 +19,7 @@ const PaydayLoan = () => {
     {
       icon: Calculator,
       title: "Competitive Rates",
-      description: "Preferential interest rates based on your Club66 Global membership tier."
+      description: "Preferential interest rates based on your Elverra Global client subscription tier."
     },
     {
       icon: ShieldCheck,
@@ -27,6 +27,7 @@ const PaydayLoan = () => {
       description: "Clear repayment terms with no hidden fees or charges."
     }
   ];
+  
   
   const membershipTiers = [
     {
@@ -56,7 +57,7 @@ const PaydayLoan = () => {
           <h1 className="text-4xl font-bold mb-4 text-center">Payday Loan</h1>
           <p className="text-center text-gray-600 mb-8 max-w-3xl mx-auto">
             Quick access to funds before your next paycheck with our competitive Payday Loan service,
-            offering preferential rates for Club66 Global members.
+            offering preferential rates for Elverra Global clients.
           </p>
           
           <div className="max-w-5xl mx-auto mb-16">
@@ -66,7 +67,7 @@ const PaydayLoan = () => {
                 <p className="text-gray-600 mb-6">
                   Our Payday Loan service provides a quick financial solution for unexpected expenses or 
                   emergencies that can't wait until your next salary. With competitive interest rates and 
-                  streamlined processing, Club66 Global members can access funds quickly and conveniently.
+                  streamlined processing, Elverra Global clients can access funds quickly and conveniently.
                 </p>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
@@ -96,7 +97,7 @@ const PaydayLoan = () => {
                           tier.tier === "Elite" ? "bg-club66-purple" : 
                           tier.tier === "Premium" ? "bg-amber-500" : "bg-gray-500"
                         }`}></div>
-                        <h4 className="font-bold">{tier.tier} Membership</h4>
+                        <h4 className="font-bold">{tier.tier} client</h4>
                       </div>
                       <div className="grid grid-cols-2 gap-y-2 text-sm">
                         <span className="text-gray-600">Interest Rate:</span>
@@ -110,7 +111,7 @@ const PaydayLoan = () => {
                   ))}
                 </div>
                 <div className="mt-6 pt-4 border-t text-sm text-gray-500">
-                  <p>Note: Elite members enjoy the lowest interest rate of 5% flat interest compared to 8% for other tiers.</p>
+                  <p>Note: Elite clients enjoy the lowest interest rate of 5% flat interest compared to 8% for other tiers.</p>
                 </div>
               </div>
             </div>
@@ -128,7 +129,7 @@ const PaydayLoan = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-gray-600 text-center">
-                    Submit your application through your member dashboard or mobile app with your employment details.
+                    Submit your application through your client dashboard or mobile app with your employment details.
                   </p>
                 </CardContent>
               </Card>
@@ -273,7 +274,7 @@ const PaydayLoan = () => {
                         <ul className="space-y-2">
                           <li className="flex items-center">
                             <Check className="h-5 w-5 text-green-500 mr-2" />
-                            <span>Active Elverra Global membership for at least 1 month</span>
+                            <span>Active Elverra Global client for at least 1 month</span>
                           </li>
                           <li className="flex items-center">
                             <Check className="h-5 w-5 text-green-500 mr-2" />
@@ -336,7 +337,7 @@ const PaydayLoan = () => {
             <h2 className="text-2xl font-bold mb-4">Need a Short-Term Financial Solution?</h2>
             <p className="text-gray-600 mb-8">
               Our Payday Loan service offers quick access to funds with competitive rates for 
-              Club66 Global members. Apply today and receive a decision quickly.
+              Elverra Global clients. Apply today and receive a decision quickly.
             </p>
             <Button className="bg-club66-purple hover:bg-club66-darkpurple" size="lg">
               Apply Now
